@@ -1,0 +1,35 @@
+{
+    "Ps234Data" : {
+        "Address" : "8 KING STREET, MELBOURNE VIC 3000",
+        "NeedsOptns" : ["More data", "Single", "Medium", "+ Entertainment", "I don't know", "Own", "No"],
+        "Name" : "iSelect Test",
+        "MobileNo" : "0400000000",
+        "Email" : "kumar.yerupalli@iselect.com.au",
+        "ProviderName" : "Exetel"
+    },
+
+    "PS222Data" : {
+        "SfdcUatUrl" : "https://test.salesforce.com/",
+        "Username" : "kumar.yerupalli@iselect.com.au.uat",
+        "Password" : "Tressa1618!",
+        "Section" : "Account",
+        "Saluatation" : "Mr.",
+        "FirstName" : "Mario",
+        "LastName" : "Bean",
+        "Email" : "kumar.yerupalli@iselect.com.au",
+        "PreferredContactMethod" : "Email",
+        "Vertical" : "Telco",
+        "Address" : "8 BLIGH PLACE, MELBOURNE VIC 3000",
+        "LeadSource" : "iSelect - Web",
+        "ImpFeature" : "More data",
+        "TypeOfHouse" : "Single",
+        "InternetUsage" : "Medium",
+        "CurrentProvider" : "I don't know",
+        "TypeOfContract" : "Month to Month",
+        "OwnOrRent" : "Own",
+        "MoveInProperty" : "No",
+        "Provider" : "Exetel",
+        "ExtraValueNBNProdPrice" : "$54.95 per month"
+    }
+
+}

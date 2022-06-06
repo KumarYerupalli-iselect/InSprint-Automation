@@ -1,0 +1,10 @@
+node_modules
+tests_output
+tests/build/functionalTests
+tests/build/pageObjects
+tests/build/utilities
+package-lock.json
+.prettierignore
+.prettierrc
+
+

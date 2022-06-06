@@ -1,0 +1,22 @@
+{
+    "Ps264Data": {
+        "Vertical": "Home Loans",
+        "PostCode": "500",
+        "Address": " 5000, Adelaide"
+    },
+    "Ps325Data": {
+        "LookingToCompareOpts": ["Electricity & Gas", " Electricity", "Gas"],
+        "TypeOfPropertyOpts": ["My home", " My business"],
+        "ownOrRentPropertyOprt": ["Own", "Rent"],
+        "movingToHouseOpts": ["movehouse", "compareplans"],
+        "ConnectionToBBOpts": ["YES", "NO"],
+        "SolarPanelOpts": ["YES", "NO"],
+        "ElecProvider": ["Alinta Energy"],
+        "ElecUsageOpt": ["Low", "Med", "High"],
+        "GasUsageOpt": ["Low", "Med", "High"],
+        "GasProvider": ["Click Energy"],
+        "FullName": "iSelect test",
+        "MobileNo": "0400000000",
+        "Email": "kumar.yerupalli@iselect.com.au"
+    }
+}

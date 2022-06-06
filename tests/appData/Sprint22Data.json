@@ -1,0 +1,55 @@
+{
+    "Ps409Data" : {
+        
+    },
+
+    "PS386Data" : {
+        "memebershipCoverType":[
+            "Just for me - male",
+            "Just for me - female", 
+            "For me and my partner", 
+            "For my whole family", 
+            "For my family - single parent"
+        ],
+         "Postcode":"4000",
+         "Address" :"4000, Spring Hill, Qld",
+         "scheduleACall" : "https://wwwuat.iselect.com.au/customer-scheduler/",
+         "aboutPageTitle":"About You - iSelect Ltd",
+         "Postcodes":[
+          "3000",
+          "3002",
+          "3003",
+          "3004",
+          "5000",
+          "5006",
+          "6000",
+          "0800",
+          "2007",
+          "2009",
+          "4009"
+        ],
+        "Age":"09/08/1986",
+        "SingleIncomeTier" : ["$90,000 and under", "$90,001 to $105,000", "$105,001 to $140,000", "$140,001 and over"],
+        "SingleCodeValue" : ["2"],
+        "FamilyIncomeTier" : ["$180,000 and under", "$180,001 to $210,000", "$210,001 to $280,000", "$280,001 and over"],
+        "familyCodeValue" : ["8"],
+        "AdultDependantOpt" : ["yes","no"],
+        "FirstName": "iselect",
+        "SurName": "test",
+        "MobileNumber": "0400 000 000",
+        "EmailID": "kumar.yerupalli@iselect.com.au",
+        "Cover" : ["Hospital + Extras", "Hospital Only", "Extras Only"],
+        "CoverLevel" : ["Basic", "Bronze", "Silver", "Gold"],
+        "Partner" : ["LATROBE"],
+        "CoverType" : ["bronze-dot"],
+        "PriceType" : ["Annually"],
+        "IncomeTierType" : ["$90,001 - $105,000 (Tier 1)"],
+        "FamilyTierType" : ["Under $180,000 (Full rebate)", "$180,001 - $210,000 (Tier 1)", "$210,001 - $280,000 (Tier 2)", "Over $280,000 (Tier 3)"],
+        "ProductPrice" : "2247.92",
+        "ProductLhcPrice" : "177.12",
+        "ProductName" : "Bronze Hospital $750 and Core Complete Extras",
+        "ProductID" : "231125",
+        "Excess" : "$750 Excess"
+        
+    }
+}
