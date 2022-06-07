@@ -1,0 +1,40 @@
+{
+    "PS488Data" : {
+        "memebershipCoverType":[
+            "Just for me - male",
+            "Just for me - female", 
+            "For me and my partner", 
+            "For my whole family", 
+            "For my family - single parent"
+        ],
+        "Postcode":"4000",
+        "Address" :"4000, Spring Hill, Qld",
+        "Age":"09/08/1986",
+        "SingleIncomeTier" : ["$90,000 and under", "$90,001 to $105,000", "$105,001 to $140,000", "$140,001 and over"],
+        "SingleCodeValue" : ["2"],
+        "FamilyIncomeTier" : ["$180,000 and under", "$180,001 to $210,000", "$210,001 to $280,000", "$280,001 and over"],
+        "familyCodeValue" : ["8"],
+        "AdultDependantOpt" : ["yes","no"],
+        "FirstName": "iselect",
+        "SurName": "test",
+        "MobileNumber": "0400 000 000",
+        "EmailID": "kumar.yerupalli@iselect.com.au",
+        "Cover" : ["Hospital + Extras", "Hospital Only", "Extras Only"],
+        "CoverLevel" : ["Basic", "Bronze", "Silver", "Gold"],
+        "Partner" : ["Bupa"],
+        "CoverType" : ["basic-dot","bronze-dot","silver-dot","gold-dot"],
+        "PriceType" : ["Annually","Monthly","Fortnightly"],
+        "IncomeTierType" : ["$90,001 - $105,000 (Tier 1)"],
+        "FamilyTierType" : ["Under $180,000 (Full rebate)", "$180,001 - $210,000 (Tier 1)", "$210,001 - $280,000 (Tier 2)", "Over $280,000 (Tier 3)"],
+        "ProductPrice" : "260.05",
+        "ProductLhcPrice" : "88.468",
+        "ProductName" : "Silver Plus Essential Hospital $750 Excess",
+        "ProductID" : "240444",
+        "Excess" : "$750 Excess",
+        "NewEditedDOB" : "24/12/1946",
+        "NewEditedAddress" : " MELBOURNE, VIC 3000",
+        "NewEditedPinCode" : "600",
+        "PartnerCoveredByFund" : ["Yes","No"],
+        "AdultDependantDOB" : "01/01/1999"
+    }
+}
