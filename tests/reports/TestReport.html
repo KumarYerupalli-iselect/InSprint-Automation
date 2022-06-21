@@ -137,223 +137,114 @@ $(document).ready(function() {
   <body>
     <h1>Nightwatch Results</h1>
     <div id="container"><a class="toggleSuccess" href="#">Show/Hide Successes</a>
-      <div class="package success">
-        <h2 class="name">&#10003; PS-466</h2>
+      <div class="errmessages">
+        <h2>Errors<span class="count"> (1)</span></h2>
+        <ul class="errors">
+          <li>[0;31m TimeoutError: An error occurred while running .click() command on &lt;//span[text()=&quot;I don't know&quot;]/..&gt;: element not interactable
+   (Session info: chrome=102.0.5005.115)[0m
+ [1;32m{&quot;error&quot;:{&quot;name&quot;:&quot;ElementNotInteractableError&quot;,&quot;remoteStacktrace&quot;:&quot;&quot;},&quot;status&quot;:-1,&quot;value&quot;:null}[0m
+[0;90m   [0m  [0m
+   [0m  [0m[90mo[0m [0m[96mhelperUtils.js[0m[36m:[0m[96m19[0m[37m [0m[97mObject.click[0m
+   [0m  [0m
+   [0m  [0m[90mo[0m [0m[96mtelco_WEB_Page.js[0m[36m:[0m[96m58[0m[37m [0m[97mObject.selectCurrentProvider[0m
+   [0m  [0m
+   [0m  [0m[90mo[0m [0m[96mPS-390.js[0m[36m:[0m[96m40[0m[37m [0m[97mObject.PS-390 [Telco - Web] Add 3 additional speed tiers[0m
+   [0m  [0m
+   [0m  [0m[90mo[0m [0m[96mcontext.js[0m[36m:[0m[96m430[0m[37m [0m[97mContext.call[0m
+   [0m  [0m
+   [0m  [0m[90mo[0m [0m[96mtestcase.js[0m[36m:[0m[96m58[0m[37m [0m[97mTestCase.run[0m
+   [0m  [0m
+   [0m  [0m[90mo[0m [0m[96mindex.js[0m[36m:[0m[96m690[0m[37m [0m[97mRunnable.__runFn[0m
+   [0m  [0m
+   [0m  [0m[90mo[0m [0m[96mrunnable.js[0m[36m:[0m[96m126[0m[37m [0m[97mRunnable.run[0m
+   [0m  [0m
+   [0m  [0m[90mo[0m [0m[96mindex.js[0m[36m:[0m[96m797[0m[37m [0m[97mTestSuite.createRunnable[0m
+   [0m  [0m
+   [0m  [0m[90mo[0m [0m[96mindex.js[0m[36m:[0m[96m802[0m[37m [0m[97mTestSuite.handleRunnable[0m
+   [0m  [0m
+   [0m  [0m[90mo[0m [0m[96mindex.js[0m[36m:[0m[96m690[0m[37m [0m
+   [0m  [0m
+   [0m[0m</li>
+        </ul>
+      </div>
+      <div class="package error">
+        <h2 class="name">&#10005; PS-390</h2>
         <div class="suites">
-          <div class="suite success">
-            <h3 class="name">PS-466	[Health - Web] Load new Bupa products in Web</h3>
+          <div class="suite error">
+            <h3 class="name">PS-390 [Telco - Web] Add 3 additional speed tiers</h3>
             <ul class="testcases">
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Element &lt;#type-select&gt; was present after 211 milliseconds.</div>
+                <div class="name">Internet Icon is Present on iSelect Home Page and Clicking on It.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Selecting theFor my family - single parent MembershipCoverType</div>
+                <div class="name">Start Button is Present on iSelect Home Page and Clicking on It.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Selecting the Address : 4000, Spring Hill, Qld</div>
+                <div class="name">Compare Broadband -- Header is Present  </div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Clicking on StartBtn</div>
+                <div class="name">Entering the address : 8 KING STREET, MELBOURNE VIC 3000</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Testing if the page title equals [0;33m'About You - iSelect Ltd'[0m [0;90m(14ms)[0m</div>
+                <div class="name">8 KING STREET, MELBOURNE VIC 3000 Address selected.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Currently Not Covered option is selected</div>
+                <div class="name">Submit Button is Present and Clicking on It.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Coming off my Parents Policy option is selected</div>
+                <div class="name">More data Option selected.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Selecting the Income Tier</div>
+                <div class="name">Single Option selected.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Selected no option</div>
+                <div class="name">Medium Option selected.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Checking Terms and Conditions and Privacy collection Notice</div>
+                <div class="name">+ Entertainment Option selected.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Clicking on Continue Button</div>
+                <div class="name">Current Provider Dropdown is Present and clicking on it.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Hospital Only Cover option is selected</div>
+                <div class="name">I don't know Option is Selected from Current provider Dropdown</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Customize your hospital cover header is visible [0;90m(63ms)[0m</div>
+                <div class="name">Own Option selected.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Basic category is selected</div>
+                <div class="name">No Option selected.</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Clicking on Participating Funds check box</div>
+                <div class="name">Clicking on Approved Product List Checkbox</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Clicking on Continue Button</div>
+                <div class="name">Clicking on Terms and Conditions Checkbox</div>
               </li>
               <li class="testcase success">
                 <div class="status">&#10003;</div>
-                <div class="name">Entering the Name : iselect</div>
+                <div class="name">Clicking on Next Button</div>
               </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Entering the Mobile Number : 0400 000 000</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Entering the Mail ID : kumar.yerupalli@iselect.com.au</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Submit Button</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Element &lt;//div[@id='teaching-bubble-popup']&gt; was visible after 4907 milliseconds.</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Edit button is visible in Personal Details and clicking on it.</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name"> Edited with DOB : 21/09/1946</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name"> Edited with DOB for Partner : 21/09/1946</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Moved to Update Button</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name"> Selcted No Option for Partners Previous Covered Health Fund</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Clicked on Adult Dependant no Option</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Clicked on Adress clear Button</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name"> Entered Adddress Code : 300</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Moved to Update Button</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Clicked on Update Button in Edit Form</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Selected basic-dot Cover</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name"> Moved to Element</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Selected Monthly Mode of Price</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name"> Moved to Element</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">clicked on policy per provider dropdown.</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name"> Moved to Element</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Selected Show all providers option</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name"> Moved to Element</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">clicked on income tier dropdown.</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Selected Under $180,000 (Full rebate) income tier option</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Clicked on Submit Button in Customize cover section</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Clicking on Edit Results Button</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Deselecting all the Funds</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Selected Partner : Bupa</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Selected Yes to show the product names</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Selected Yes to show the product ID</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Clicked on Submit Button</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Product is Visible</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Product Excess is Selected</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">$750 Excess is Selected</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Passed [equal]: Actual Price 140.99 Matches with Expected Price 140.99</div>
-              </li>
-              <li class="testcase success">
-                <div class="status">&#10003;</div>
-                <div class="name">Passed [equal]: Actual LHC Price 146.93 Matches with LHC Price 146.93</div>
+              <li class="testcase error">
+                <div class="status">&#10005;</div>
+                <div class="name">Your Details Page is Loaded.. Header is visible in 5000ms - expected [0;32m&quot;is visible&quot;[0m but got: [0;31m&quot;element could not be located&quot;[0m [0;90m(20087ms)[0m Expected &quot;is visible&quot; but got: &quot;element could not be located&quot;</div>
+                <div class="screenshot"><img src="..\..\tests_output\failedScreenshots\PS-390\PS-390-[Telco---Web]-Add-3-additional-speed-tiers_FAILED_Jun-21-2022-152731-GMT+0530.png"></div>
               </li>
             </ul>
           </div>

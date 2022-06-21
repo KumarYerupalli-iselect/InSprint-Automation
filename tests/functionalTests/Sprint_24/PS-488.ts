@@ -11,7 +11,7 @@ module.exports = {
     /**
      * Tickets Covered : PS-488	[Health - Web] Upload new Bupa Standalone Hospital Products - Extended Dependents
      *                   PS-483	[Health - Data] Creating MT for Bupa Standalone Hospital Products - Extended Dependents- Rapid
-     *                   PS-480	[Health - xx] Links not displayed in Health Offers on Web
+     *   
      
      * Scenario Details:
      * Product ID	Product Short Name	                               State	Membership	PolicyType	Tier 	Base Value	   Respectivetiervalue	Rebate%	        Age	  Percentage	GrossMonthlyLHCPremium	LHCoutput	Output	

@@ -7,7 +7,7 @@
     "clean": "rimraf ./tests_output/failedScreenshots && rimraf ./tests/build && rimraf ./tests/reports/*.html",
     "compile": "cd ./tests && tsc --outDir ./build/",
     "regressionTests:uat": "npx nightwatch ./tests/build/functionalTests/Regression --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
-    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/Sprint_23/PS-466.js --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
+    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/Sprint_25/PS-390.js --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
     "regressionTests:prod": "npx nightwatch ./tests/build/functionalTests/Regression --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js -e PROD",
     "testSafari:browserstack": "npx nightwatch -c ./tests/configFiles/nightwatch.browserstack.conf.js ./build/functionalTests -a quickTestCheck -e browserstack.safari",
     "test": "npm run clean && npm run compile && npm run runSingleTest"
