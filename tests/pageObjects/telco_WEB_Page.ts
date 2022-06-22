@@ -70,7 +70,11 @@ export const telcoPage = {
     /** Home Loans Page Header */
     homeLoansPageHeader : '//h1[text()="Compare Australian Home Loans"]',
     /** Lendi Credit Guide link */
-    lendiCreditGuideLink : '//a[text()="Credit Guide"]'
+    lendiCreditGuideLink : '//a[text()="Credit Guide"]',
+
+    speed25by10tier : '//div[text()="Standard 25/10"]',
+    speed25by10tierImg : '//div[text()="Standard 25/10"]/../img'
+
   },
 
 
@@ -129,8 +133,10 @@ export const telcoPage = {
 
   /** Selects the Provider based on data */
   selectProviderFromFilter(browser : NightwatchBrowser, providerName : string) {
-    browser.pause(7000);
-    helperUtils.click(browser, 'useXpath', this.elements.providerFilter, 'Provider Filter is Present and clicking on it.');
+    browser.waitForElementVisible('(//p[text()="Your search criteria is saved!"])[2]', 20000, 500, undefined, undefined, 'Search Criteria Popup is Visible');
+    browser.click('(//div[@class="ss-teaching-bubble-container-close-btn"])[2]');
+    browser.waitForElementVisible(this.elements.providerFilter, 15000, 500, undefined, undefined, 'Provider Filter is Visible.');
+    helperUtils.click(browser, 'useXpath', this.elements.providerFilter, 'Clicking on Provider Filter.');
     helperUtils.click(browser, 'useXpath', '(//label[text()="' + providerName + '"]/../a)[1]', providerName + ' is Present in Filter section and Selecting the ' + providerName + ' Provider');
     helperUtils.click(browser, 'useXpath', this.elements.applyBtnfromProvider, 'Apply button is Visible clicking on it')
   },
@@ -150,6 +156,12 @@ export const telcoPage = {
   validateAndClickLendiCreditGuideLink(browser:NightwatchBrowser) {
     helperUtils.assertElementStatus(browser, 'visible', this.elements.lendiCreditGuideLink, 'Validation Passed.. Lendi Credit Guide is Visible.');
     helperUtils.click(browser, 'useXpath', this.elements.lendiCreditGuideLink, 'Lendi Credit Link is Present and clicking on it.');  
+  },
+
+  validateSpeedTier(browser:NightwatchBrowser) {
+    browser.pause(3000);
+    helperUtils.assertElementStatus(browser, 'visible', this.elements.speed25by10tier, '25/10 Speed Tier is Visible');
+    helperUtils.assertElementStatus(browser, 'visible', this.elements.speed25by10tierImg, '25/10 Speed Tier Logo is Visible');
   }
 
 };

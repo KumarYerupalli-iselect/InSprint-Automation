@@ -137,40 +137,10 @@ $(document).ready(function() {
   <body>
     <h1>Nightwatch Results</h1>
     <div id="container"><a class="toggleSuccess" href="#">Show/Hide Successes</a>
-      <div class="errmessages">
-        <h2>Errors<span class="count"> (1)</span></h2>
-        <ul class="errors">
-          <li>[0;31m TimeoutError: An error occurred while running .click() command on &lt;//span[text()=&quot;I don't know&quot;]/..&gt;: element not interactable
-   (Session info: chrome=102.0.5005.115)[0m
- [1;32m{&quot;error&quot;:{&quot;name&quot;:&quot;ElementNotInteractableError&quot;,&quot;remoteStacktrace&quot;:&quot;&quot;},&quot;status&quot;:-1,&quot;value&quot;:null}[0m
-[0;90m   [0m  [0m
-   [0m  [0m[90mo[0m [0m[96mhelperUtils.js[0m[36m:[0m[96m19[0m[37m [0m[97mObject.click[0m
-   [0m  [0m
-   [0m  [0m[90mo[0m [0m[96mtelco_WEB_Page.js[0m[36m:[0m[96m58[0m[37m [0m[97mObject.selectCurrentProvider[0m
-   [0m  [0m
-   [0m  [0m[90mo[0m [0m[96mPS-390.js[0m[36m:[0m[96m40[0m[37m [0m[97mObject.PS-390 [Telco - Web] Add 3 additional speed tiers[0m
-   [0m  [0m
-   [0m  [0m[90mo[0m [0m[96mcontext.js[0m[36m:[0m[96m430[0m[37m [0m[97mContext.call[0m
-   [0m  [0m
-   [0m  [0m[90mo[0m [0m[96mtestcase.js[0m[36m:[0m[96m58[0m[37m [0m[97mTestCase.run[0m
-   [0m  [0m
-   [0m  [0m[90mo[0m [0m[96mindex.js[0m[36m:[0m[96m690[0m[37m [0m[97mRunnable.__runFn[0m
-   [0m  [0m
-   [0m  [0m[90mo[0m [0m[96mrunnable.js[0m[36m:[0m[96m126[0m[37m [0m[97mRunnable.run[0m
-   [0m  [0m
-   [0m  [0m[90mo[0m [0m[96mindex.js[0m[36m:[0m[96m797[0m[37m [0m[97mTestSuite.createRunnable[0m
-   [0m  [0m
-   [0m  [0m[90mo[0m [0m[96mindex.js[0m[36m:[0m[96m802[0m[37m [0m[97mTestSuite.handleRunnable[0m
-   [0m  [0m
-   [0m  [0m[90mo[0m [0m[96mindex.js[0m[36m:[0m[96m690[0m[37m [0m
-   [0m  [0m
-   [0m[0m</li>
-        </ul>
-      </div>
-      <div class="package error">
-        <h2 class="name">&#10005; PS-390</h2>
+      <div class="package success">
+        <h2 class="name">&#10003; PS-390</h2>
         <div class="suites">
-          <div class="suite error">
+          <div class="suite success">
             <h3 class="name">PS-390 [Telco - Web] Add 3 additional speed tiers</h3>
             <ul class="testcases">
               <li class="testcase success">
@@ -241,10 +211,53 @@ $(document).ready(function() {
                 <div class="status">&#10003;</div>
                 <div class="name">Clicking on Next Button</div>
               </li>
-              <li class="testcase error">
-                <div class="status">&#10005;</div>
-                <div class="name">Your Details Page is Loaded.. Header is visible in 5000ms - expected [0;32m&quot;is visible&quot;[0m but got: [0;31m&quot;element could not be located&quot;[0m [0;90m(20087ms)[0m Expected &quot;is visible&quot; but got: &quot;element could not be located&quot;</div>
-                <div class="screenshot"><img src="..\..\tests_output\failedScreenshots\PS-390\PS-390-[Telco---Web]-Add-3-additional-speed-tiers_FAILED_Jun-21-2022-152731-GMT+0530.png"></div>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Your Details Page is Loaded.. Header is visible [0;90m(1940ms)[0m</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">iSelect Test Entered in Your name Field.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">0400000000 Entered in Mobile Number Field.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">kumar.yerupalli@iselect.com.au Entered in Email Field.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Clicked on View Results Button</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Search Criteria Popup is Visible</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Provider Filter is Visible.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Clicking on Provider Filter.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Superloop is Present in Filter section and Selecting the Superloop Provider</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Apply button is Visible clicking on it</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">25/10 Speed Tier is Visible [0;90m(35ms)[0m</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">25/10 Speed Tier Logo is Visible [0;90m(30ms)[0m</div>
               </li>
             </ul>
           </div>
