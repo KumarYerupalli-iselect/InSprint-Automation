@@ -120,7 +120,7 @@ export const healthWebPage = {
     /**
      * Customize Personal Details
      */
-    customizePersonalDetails(browser:NightwatchBrowser, 
+     customizePersonalDetails(browser:NightwatchBrowser, 
         membershipType : string, addressChange : boolean, dobChange : boolean, 
         partnerdobChange:boolean, newEditAddressCode?:string, newEditAddress?: string, 
         newEditDOB? : string, partnerCoveredByFund?: string, adultDependantOpt?: string, 
@@ -362,6 +362,7 @@ export const healthWebPage = {
             var lhcActualText = text.value
             lhcActualText = lhcActualText.toString();
             lhcActualText = lhcActualText.substr(3,6);
+            lhcActualText = lhcActualText.trim();
             console.log(lhcActualText);
             browser.assert.equal(lhcActualText, productLhcPrice, "Actual LHC Price "+ lhcActualText + " Matches with LHC Price "+productLhcPrice);
         })
@@ -369,6 +370,8 @@ export const healthWebPage = {
 
     validateProductPrice(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string) {
         helperUtils.click(browser, 'useXpath', '//span[text()="'+ productName +'"]/../div/select/option[text()="$500 Excess"]', 'Product Excess is Selected');
+        //browser.doubleClick('//span[text()="'+ productName +'"]/../div/select/option[text()="$500 Excess"]');
+        //browser.doubleClick('//span[text()="'+ productName +'"]/../div/select/option[text()="'+ excess +'"]');
         helperUtils.click(browser, 'useXpath', '//span[text()="'+ productName +'"]/../div/select/option[text()="'+ excess +'"]', excess + ' is Selected');
         browser.pause(5000);
         browser.useXpath().getText('//td[@data-new-policy-id="'+ productID +'"]/div/div[2]/div/span',(text)=>{
@@ -394,6 +397,33 @@ export const healthWebPage = {
         });
     },
 
+    validateProductDualPricing(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string) {
+        helperUtils.click(browser, 'useXpath', '//span[text()="'+ productName +'"]/../div/select/option[text()="$500 Excess"]', 'Product Excess is Selected');
+        helperUtils.click(browser, 'useXpath', '//span[text()="'+ productName +'"]/../div/select/option[text()="'+ excess +'"]', excess + ' is Selected');
+        browser.pause(5000);
+        browser.useXpath().getText('//td[@data-new-policy-id="'+ productID +'"]/div[2]/div/strong',(text)=>{
+            console.log(text.value);
+            var priceActualText = text.value
+            priceActualText = priceActualText.toString();
+            priceActualText = priceActualText.substr(1,7);
+            priceActualText = priceActualText.trim();
+            console.log(priceActualText);
+            browser.assert.equal(priceActualText, productPrice, "Actual Price "+ priceActualText + " Matches with Expected Price "+productPrice);
+        });
+    },
+
+    validateProductLHCDualPricing(browser: NightwatchBrowser, productID : string, productLhcPrice : string) {
+        browser.useXpath().getText('//td[@data-new-policy-id="'+ productID +'"]/div[2]/div[2]',(text)=>{
+            console.log(text.value);
+            var lhcActualText = text.value
+            lhcActualText = lhcActualText.toString();
+            lhcActualText = lhcActualText.substr(3,6);
+            lhcActualText = lhcActualText.trim();
+            console.log(lhcActualText);
+            browser.assert.equal(lhcActualText, productLhcPrice, "Actual LHC Price "+ lhcActualText + " Matches with LHC Price "+productLhcPrice);
+        })
+    },
+
     verifyAndValidateProduct(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string, productLhcPrice : string) {
         if(browser.waitForElementPresent('//span[text()="'+ productName +'"]', 5000, 500, undefined, undefined, 'Product is Visible')) {
             //this.demoTestAsync(browser, productName);
@@ -406,6 +436,15 @@ export const healthWebPage = {
         // } else if(browser.click('//a[text()="3"]') && browser.waitForElementVisible('//span[text()="'+ productName +'"]', 5000, 500, undefined, undefined, 'Product is Visible')) {
         //     this.validateProductPrice(browser, productName, excess, productID, productPrice);
         //     this.validateProductLHCPrice(browser, productID, productLhcPrice);
+        } else {
+            console.log("Product Not Visible");
+        } 
+    },
+
+    verifyAndValidateProductDualPricing(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string, productLhcPrice : string) {
+        if(browser.waitForElementPresent('//span[text()="'+ productName +'"]', 5000, 500, undefined, undefined, 'Product is Visible')) {
+            this.validateProductDualPricing(browser, productName, excess, productID, productPrice);
+            this.validateProductLHCDualPricing(browser, productID, productLhcPrice);
         } else {
             console.log("Product Not Visible");
         } 
