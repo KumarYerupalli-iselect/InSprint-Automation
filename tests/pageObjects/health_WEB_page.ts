@@ -114,7 +114,7 @@ export const healthWebPage = {
         helperUtils.click(browser, 'useXpath', this.elements.showProdIdsCB, 'Selected Yes to show the product ID');
         
         helperUtils.click(browser, 'useXpath', this.elements.editSettSubmitBtn, 'Clicked on Submit Button');
-        browser.frame(null);
+        browser.frameParent();
     },
 
     /**
@@ -202,21 +202,22 @@ export const healthWebPage = {
             helperUtils.moveToElement(browser, this.elements.editFormUpdateBtn, 'Moved to Update Button');
             helperUtils.click(browser, 'useXpath', '//input[@value="'+ partnerCoveredByFund +'"]', ' Selcted '+partnerCoveredByFund+ ' Option for Partners Previous Covered Health Fund');
             
-            if(adultDependantOpt == 'yes') {
-                helperUtils.click(browser, 'useXpath', '//input[@name="healthClientSession.adultDependant" and @value="'+ adultDependantOpt +'"]', 'Clicked on Adult Dependant '+adultDependantOpt+' Option');
+            if(adultDependantOpt == 'Yes') {
+                helperUtils.click(browser, 'useXpath', '//input[@name="healthClientSession.adultDependant" and @value="yes"]', 'Clicked on Adult Dependant Yes Option');
                 helperUtils.enterKeys(browser, 'useXpath', this.elements.adultDependantDOB, adultDepandantDOB, 'Entered Adult Dependant DOB : ' +adultDepandantDOB);
                 browser.doubleClick('(//select[@name="dependentType0"])[1]');
                 helperUtils.click(browser, 'useXpath', '(//option[text()="Part-time tertiary student"])[1]', 'Selected Part time tertiary Student Option');
             } else {
-                helperUtils.click(browser, 'useXpath', '//input[@name="healthClientSession.adultDependant" and @value="'+ adultDependantOpt +'"]', 'Clicked on Adult Dependant '+adultDependantOpt+' Option');
+                helperUtils.click(browser, 'useXpath', '//input[@name="healthClientSession.adultDependant" and @value="no"]', 'Clicked on Adult Dependant no Option');
             }
 
             if(addressChange == true) {
+                browser.click('//option[text()="'+ membershipType +'"]');
                 helperUtils.click(browser, 'useXpath', this.elements.addressClearBtn, 'Clicked on Adress clear Button');
                 helperUtils.enterKeys(browser, 'useXpath', this.elements.editAddressPlaceHolder, newEditAddressCode, ' Entered Adddress Code : '+newEditAddressCode);
                 //helperUtils.click(browser, 'useXpath', '//div[text()="'+ newEditAddress +'"]', 'Clicked on th Adddress : ' +newEditAddress );
                 browser.doubleClick('//div[text()="'+ newEditAddress +'"]');
-                browser.pause(1000);
+                browser.pause(3000);
                 browser.click('//h2[text()="Your Details"]');
             } else {
                 console.log("No Address Changed");

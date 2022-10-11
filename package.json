@@ -7,7 +7,7 @@
     "clean": "rimraf ./tests_output/failedScreenshots && rimraf ./tests/build && rimraf ./tests/reports/*.html",
     "compile": "cd ./tests && tsc --outDir ./build/",
     "regressionTests:uat": "npx nightwatch ./tests/build/functionalTests/Regression --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
-    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/SprintQ1_01_02/PS-640.js --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
+    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/SprintQ2_07/PS-865.js --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
     "regressionTests:prod": "npx nightwatch ./tests/build/functionalTests/Regression --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js -e PROD",
     "testSafari:browserstack": "npx nightwatch -c ./tests/configFiles/nightwatch.browserstack.conf.js ./build/functionalTests -a quickTestCheck -e browserstack.safari",
     "test": "npm run clean && npm run compile && npm run runSingleTest"
@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/nightwatch": "^2.0.6",
     "@types/node": "^17.0.14",
-    "chromedriver": "^103.0.0",
+    "chromedriver": "^106.0.1",
     "dot-env": "^0.0.1",
     "fs": "^0.0.1-security",
     "geckodriver": "^3.0.1",
