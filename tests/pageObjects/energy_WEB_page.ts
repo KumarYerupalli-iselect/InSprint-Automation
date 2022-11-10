@@ -1,5 +1,5 @@
 /** Night Watch Browser */
-import { NightwatchBrowser } from "nightwatch";
+import { NightwatchBrowser} from "nightwatch";
 /**Utils Object */
 import {helperUtils} from "../utilities/helperUtils";
 
@@ -69,7 +69,12 @@ export const energywebpage = {
         contactUsBtn : '//span[@id="helpButtonSpan"]',
         cntUsChatForm : '//div[@class="formContent embeddedServiceSidebarForm"]',
 
-        productOnresultPage : '(//span[text()="NSW Simply Energy Saver+ Ausgrid 28/19% ^"])[2]'
+        productOnresultPage : '(//span[text()="NSW Simply Energy Saver+ Ausgrid 28/19% ^"])[2]',
+
+        simplyEnergyLogo : '//a[@href="/energy/energy-providers/simply-energy/"]//img',
+        viewOurEnergyPartnersBtn : '//a[text()="View our energy partners"]',
+        viewOurPartnerSimplyEnergyLogo : '//a[@href="/energy-providers/simply-energy/"]//img'
+
 
     },
 
@@ -332,7 +337,6 @@ export const energywebpage = {
         } else {
             helperUtils.assertElementStatus(browser, 'visible', '//div[text()="' + errMsg + '"]', errMsg + ' - Error Message is Visible.');
         }
-        
     },
 
     /**
@@ -385,5 +389,29 @@ export const energywebpage = {
      */
      validateProductPresentInResultsPage(browser:NightwatchBrowser){
         helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', '(//span[text()="NSW Simply Energy Saver+ Ausgrid 28/19% ^"])[2]', 20000, 1000, undefined, 'Validation Successful... ');
-     }
+     },
+
+     /** Validates the Updated URL for Energy */
+     validateUpdatedURL(browser:NightwatchBrowser, updatedUrl : string, existingUrl : string, i: number) {
+        browser.assert.urlEquals(updatedUrl, 'VALIDATION SUCCESS: \nEXISTING URL :::  ' + existingUrl + '\nUPDATED TO ::: ' +  updatedUrl);
+        browser.saveScreenshot('./tests/screenshots/'+ i +'.png');
+     },
+
+     validateSimplyEnergyLogo(browser:NightwatchBrowser) {
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', this.elements.simplyEnergyLogo, 10000, 100, undefined, 'Simply Energy is added to Energy Home Page under Our Partners Section');
+        helperUtils.click(browser, 'useXpath', this.elements.viewOurEnergyPartnersBtn, 'Clicked on View Our partners button');
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', this.elements.viewOurPartnerSimplyEnergyLogo, 10000, 100, undefined, 'Simply Energy is Present in View our Partners Page');
+        browser.back();
+        helperUtils.enterKeys(browser, 'useXpath', this.elements.energyAddressBar, '200', 'Entered Address code');
+        helperUtils.click(browser, 'useXpath', '//div[text()=" 2000, Sydney"]', 'Selected Address from dropdown');
+        helperUtils.click(browser, 'useXpath', this.elements.startBtn, 'Clicked on Start Button');
+        helperUtils.click(browser, 'useXpath', this.elements.approvedProductListLink, 'Clicked on Approved Product List Link');
+        browser.frame(0);
+        for(let i=1; i<=6; i++) {
+            helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', '(//li[text()="Simply Energy"])['+ i +']', 5000, 100, undefined, 'Simply Energy is Present in Providers Page');
+        }
+        browser.frameParent();
+     },
+
+     
 }

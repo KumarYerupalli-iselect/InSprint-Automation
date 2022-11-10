@@ -1,0 +1,45 @@
+{
+    "PS936Data": {
+        "UpdatedURL": "https://www.iselect.com.au/energy/renewable/solar-power/",
+        "EnergyURLs": ["https://www.iselect.com.au/energy/renewable/", "https://www.iselect.com.au/energy/renewable/benefits-of-solar-energy/", "https://www.iselect.com.au/energy/renewable/biomass-energy/", "https://www.iselect.com.au/energy/renewable/hydroelectricity/", "https://www.iselect.com.au/energy/renewable/solar-power-systems/", "https://www.iselect.com.au/energy/renewable/wind-energy/", "https://www.iselect.com.au/energy/renewable/solar-power/feed-in-tariff/"]
+    },
+    "PS797Data": {
+        "memebershipCoverType": [
+            "Just for me - male",
+            "Just for me - female",
+            "For me and my partner",
+            "For my whole family",
+            "For my family - single parent"
+        ],
+        "Postcode": "300",
+        "Address": "3000, Melbourne, Vic",
+        "Age": "03/12/1986",
+        "SingleIncomeTier": ["$90,000 and under", "$90,001 to $105,000", "$105,001 to $140,000", "$140,001 and over"],
+        "SingleCodeValue": ["2"],
+        "FamilyIncomeTier": ["$180,000 and under", "$180,001 to $210,000", "$210,001 to $280,000", "$280,001 and over"],
+        "familyCodeValue": ["8"],
+        "AdultDependantOpt": ["yes", "no"],
+        "FirstName": "iselect test",
+        "SurName": "test",
+        "MobileNumber": "0400 000 000",
+        "EmailID": "kumar.yerupalli@iselect.com.au",
+        "Cover": ["Hospital + Extras", "Hospital Only", "Extras Only"],
+        "CoverLevel": ["Basic", "Bronze", "Silver", "Gold"],
+        "Partner": ["AHM", "AIA", "AU", "AUO", "Bupa", "FRANK", "GMHBA", "HCF", "health.com.au", "LATROBE", "NIB", "TUH"],
+        "CoverType": ["basic-dot", "bronze-dot", "silver-dot", "gold-dot"],
+        "PriceType": ["Annually", "Monthly", "Fortnightly"],
+        "SingleTierType": ["Under $90,000 (Full rebate)", "$90,001 - $105,000 (Tier 1)", "$105,001 - $140,000 (Tier 2)", "Over $140,000 (Tier 3)"],
+        "FamilyTierType": ["Under $180,000 (Full rebate)", "$180,001 - $210,000 (Tier 1)", "$210,001 - $280,000 (Tier 2)", "Over $280,000 (Tier 3)"],
+        "ProductPrice": "278.75",
+        "ProductLhcPrice": "133.05",
+        "ProductName": "Bronze Hospital Plus $750 Excess with Dental Boost",
+        "ProductID": "244727",
+        "Excess": "$750 Excess",
+        "NewEditedDOB": "03/12/1946",
+        "PartnerCoveredByFund": ["Yes", "No"],
+        "ExtendedDepOpt": ["yes", "no"],
+        "AdultDependatDOB": "01/01/1999",
+        "NewEditedPinCode": ["200", "260", "300", "400", "500", "600", "700", "080"],
+        "NewEditedAddress": [" SYDNEY, NSW 2000", " YARRALUMLA, ACT 2600", " MELBOURNE, VIC 3000", " SPRING HILL, QLD 4000", " ADELAIDE, SA 5000", " PERTH, WA 6000", " HOBART, TAS 7000", " DARWIN, NT 0800"]
+    }
+}

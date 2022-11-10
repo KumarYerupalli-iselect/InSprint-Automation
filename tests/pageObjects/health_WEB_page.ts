@@ -18,6 +18,8 @@ export const healthWebPage = {
         covertype: "(//div[@id='type-select']/descendant::label/span)",
         aboutYouPageHeader :"//h2[text()='About you']",
 
+        bupaPartnerLink : '//a[@href="/health-insurance/bupa/"]',
+
         /** Needs Page Objects */
         currentlyNotCoveredType: "//p[text()='Currently not covered']/../..",
         minimalCoverOption: `(//div[@class="form-row HI-CC-qs-container"]/div[2]/label/descendant::p)[2]`,
@@ -97,7 +99,9 @@ export const healthWebPage = {
         editFormUpdateBtn : '//h2[text()="Your Details"]/../../div[3]//input[@value="Update"]',
         editFormCancelBtn : '//h2[text()="Your Details"]/../../div[3]//input[@value="Cancel"]',
         partnerCoveredByHealthFund : '//input[@value="Yes"]',
-        adultDependantDOB : '(//input[@name="dependentDOB0"])[1]'
+        adultDependantDOB : '(//input[@name="dependentDOB0"])[1]',
+
+        bupaPartnerText : '//div[@class="visual-editor"]'
      },
 
     /**
@@ -153,17 +157,6 @@ export const healthWebPage = {
             browser.doubleClick('//select[@id="healthClientSession.membershipType"]');
             browser.click('//option[text()="'+ membershipType +'"]');
 
-            if(addressChange == true) {
-                helperUtils.click(browser, 'useXpath', this.elements.addressClearBtn, 'Clicked on Adress clear Button');
-                helperUtils.enterKeys(browser, 'useXpath', this.elements.editAddressPlaceHolder, newEditAddressCode, ' Entered Adddress Code : '+newEditAddressCode);
-                helperUtils.click(browser, 'useXpath', '//div[text()="'+ newEditAddress +'"]', 'Clicked on th Adddress : ' +newEditAddress );
-                browser.click('//h2[text()="Your Details"]');
-                browser.pause(1000);
-                browser.click('//h2[text()="Your Details"]');
-            } else {
-                console.log("No Address Changed");
-            }
-
             if(dobChange == true) {
                 browser.clearValue(this.elements.editDOBPlaceholder);
                 helperUtils.enterKeys(browser, 'useXpath', this.elements.editDOBPlaceholder, newEditDOB, ' Edited with DOB : '+newEditDOB);
@@ -180,6 +173,16 @@ export const healthWebPage = {
             //browser.execute('window.scrollTo(0,document.body.scrollHeight)');
             helperUtils.moveToElement(browser, this.elements.editFormUpdateBtn, 'Moved to Update Button');
             helperUtils.click(browser, 'useXpath', '//input[@value="'+ partnerCoveredByFund +'"]', ' Selcted '+partnerCoveredByFund+ ' Option for Partners Previous Covered Health Fund');
+            if(addressChange == true) {
+                helperUtils.click(browser, 'useXpath', this.elements.addressClearBtn, 'Clicked on Adress clear Button');
+                helperUtils.enterKeys(browser, 'useXpath', this.elements.editAddressPlaceHolder, newEditAddressCode, ' Entered Adddress Code : '+newEditAddressCode);
+                helperUtils.click(browser, 'useXpath', '//div[text()="'+ newEditAddress +'"]', 'Clicked on th Adddress : ' +newEditAddress );
+                browser.click('//h2[text()="Your Details"]');
+                browser.pause(1000);
+                browser.click('//h2[text()="Your Details"]');
+            } else {
+                console.log("No Address Changed");
+            }
             helperUtils.click(browser, 'useXpath', this.elements.editFormUpdateBtn, 'Clicked on Update Button in Edit Form');
 
         } else if (membershipType == 'For my whole family') {
@@ -339,9 +342,9 @@ export const healthWebPage = {
 
     /**Fills the Your details Page in Health */
     fillYourDetailsPage(browser:NightwatchBrowser) {
-        helperUtils.enterKeys(browser, 'useXpath', this.elements.yourNameFld, data.PS386Data.FirstName, 'Entering the Name : ' + data.PS386Data.FirstName);
-        helperUtils.enterKeys(browser, 'useXpath', this.elements.mobilenumberFld, data.PS386Data.MobileNumber, 'Entering the Mobile Number : ' + data.PS386Data.MobileNumber);
-        helperUtils.enterKeys(browser, 'useXpath', this.elements.emailIDFld, data.PS386Data.EmailID, 'Entering the Mail ID : ' + data.PS386Data.EmailID);
+        helperUtils.enterKeys(browser, 'useXpath', this.elements.yourNameFld, 'iSelect test', 'Entering the Name : iSelect test');
+        helperUtils.enterKeys(browser, 'useXpath', this.elements.mobilenumberFld, '0400 000 000', 'Entering the Mobile Number : 0400 000 000');
+        helperUtils.enterKeys(browser, 'useXpath', this.elements.emailIDFld, 'kumar.yerupalli@iselect.com.au', 'Entering the Mail ID : kumar.yerupalli@iselect.com.au');
         browser.pause(3000);
         helperUtils.click(browser,'useCss', this.elements.submitBtn, 'Submit Button');
     },
@@ -401,7 +404,7 @@ export const healthWebPage = {
     validateProductDualPricing(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string) {
         helperUtils.click(browser, 'useXpath', '//span[text()="'+ productName +'"]/../div/select/option[text()="$500 Excess"]', 'Product Excess is Selected');
         helperUtils.click(browser, 'useXpath', '//span[text()="'+ productName +'"]/../div/select/option[text()="'+ excess +'"]', excess + ' is Selected');
-        browser.pause(5000);
+        browser.pause(2000);
         browser.useXpath().getText('//td[@data-new-policy-id="'+ productID +'"]/div[2]/div/strong',(text)=>{
             console.log(text.value);
             var priceActualText = text.value
@@ -449,6 +452,14 @@ export const healthWebPage = {
         } else {
             console.log("Product Not Visible");
         } 
+    },
+
+    validateBUPAPartnersPage(browser:NightwatchBrowser) {
+        helperUtils.click(browser, 'useXpath', this.elements.bupaPartnerLink, 'Clicked on Bupa Partner');
+        browser.pause(2000);
+        browser.getText(this.elements.bupaPartnerText, (res) => {
+            browser.waitForElementVisible(this.elements.bupaPartnerText, 5000, 500, undefined, undefined, 'Text is : '+res.value);
+        })  
     }
 
   };

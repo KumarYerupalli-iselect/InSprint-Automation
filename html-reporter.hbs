@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Automation Test Results - {{browser}}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html, body {
+      font-family: Arial,sans-serif;
+      margin: 0;
+      padding: 0;
+      {{!-- background-color: #fcf7f2; --}}
+    }
+
+    body { padding: 10px 40px; }
+
+    table { width: 100%; margin-bottom: 20px; }
+
+      td {
+        padding: 7px;
+        border-top: none;
+        border-left: 1px black solid;
+        border-bottom: 1px black solid;
+        border-right: none;
+      }
+    
+      td.pass { color: #003b07; background: #fce4cc;}
+      td.skip { color: #7d3a00; background: #ffd24a; }
+      td.fail { color: #5e0e00; }
+      td.total { color: #122e52; }
+      
+      .overview {border-bottom: solid 1px;}
+
+    tr:last-child       { border-top: 1px black solid; }
+      tr:last-child td    { border-top: 1px black solid; }
+      tr:first-child td   { border-top: 1px black solid; }
+        td:last-child       { border-right: 1px black solid; }
+
+    tr.overview td      { padding-bottom: 0px; border-bottom: none; }
+    tr.overview.last td { padding-bottom: 3px; }
+
+    ul.assertions   { 
+      list-style-type: none; 
+      display: block;
+    }
+      span.error      { color: #AD2B2B; }
+      span.success    { color: #53891E; }
+
+    .stacktrace { display: inline; }
+      .stacktrace code { display: none; }
+
+    .scenario {
+      color: #f29233;
+      display: inline-block;
+      margin-top: 7px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .scenario-container { background-color:#f0e4d8; padding-left: 20px;}
+
+    .testcase {
+      color: #f2a75c;
+      display: block;
+      padding-left: 20px;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .final-result {
+      display:block;
+    }
+
+    #showHide {
+      margin-bottom: 15px;
+      text-decoration-line: underline;
+      text-decoration-color: blue;
+      color: #d97b29;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .fa-image{
+      width: 22px;
+      position: absolute;
+      padding-left: 10px;
+      padding-top: 2px;
+      color: #f29233;
+    }
+
+    .fa-caret-down , .fa-caret-up{
+      width: 13px;
+      color: #f29233;
+      position: relative;
+      top: 5px;
+      cursor: pointer;
+    }  
+
+    .fa-caret-down{
+      display:inline-block;
+    }  
+
+    #logo {
+      position: absolute;
+      width: 90px;
+      height: 60px;
+      top:5px;
+      right:45px;
+    }
+
+    .failed-screenshot {
+      width:50%;
+      display: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    canvas{
+      margin: 5px 0% 5px 13%;
+    }
+
+    #bar-chart{
+        width:350px !important;
+        height:250px !important;
+    }
+
+    #pie-chart{
+        width:300px !important;
+        height:180px !important;
+        display: inline-block;
+    }
+
+    #charts{
+      text-align:center;
+    }
+
+    table{
+      border-collapse: collapse;
+    }
+
+    thead tr{
+      background-color: #f2983f;
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: bolder;
+    }
+
+    .passed-tc{
+      color:green;
+      font-weight: 600;
+    }
+
+    .failed-tc{
+      color: red;
+      font-weight: 600;
+    }
+
+    .paginate_button{
+      margin-right: 10px;
+    }
+
+    .paginate_button.current{
+      text-decoration: underline;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src = "https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  
+  <script type="text/javascript">
+  
+    function loadFunc(){
+      console.log("loaded");
+      let allImageIcons = document.getElementsByClassName('fa-image');
+      let testScenario = document.getElementsByClassName('scenario');
+      let testcases = document.getElementsByClassName('testcase');
+      for(let itr=0;itr<testcases.length;itr++){
+        let assertions = testcases[itr].parentElement.getElementsByClassName('assertions');
+        let finalResult = document.getElementsByClassName('final-result');
+        console.log(finalResult);
+        testcases[itr].style.display='none';
+        testcases[itr].nextElementSibling.style.display='none';
+        testcases[itr].nextElementSibling.nextElementSibling.style.display = 'none';
+      }
+      
+      for (let itr = 0; itr < allImageIcons.length; itr++) {
+          allImageIcons[itr].addEventListener("click", function(evt){
+          let imageId = evt.currentTarget.parentElement.nextElementSibling.getAttribute('id');
+          document.getElementById(imageId).style.display = document.getElementById(imageId).style.display == 'block' ? 'none' : 'block';
+        })
+      }
+      let down = document.getElementsByClassName('fa-caret-down');
+      let upArrows = document.getElementsByClassName('fa-caret-up');
+      for (let itr = 0; itr < down.length; itr++) {
+        console.log('down display none');
+        down[itr].style.display = 'none';
+        down[itr].addEventListener('click', function (evnt) {
+          let current = evnt.currentTarget;
+          current.previousElementSibling.style.display = 'inline-block';
+          current.style.display = 'none';
+          let parent = current.parentElement;
+          let testcases = parent.getElementsByClassName('testcase');
+          for(let itr=0;itr<testcases.length;itr++){
+            testcases[itr].style.display='none';
+            testcases[itr].nextElementSibling.style.display='none';
+            testcases[itr].nextElementSibling.nextElementSibling.style.display='none';
+            testcases[itr].nextElementSibling.nextElementSibling.nextElementSibling.style.display='none';
+          }
+        });
+      }
+
+      for (let itr = 0; itr < upArrows.length; itr++) {
+        upArrows[itr].style.display='inline-block';
+        upArrows[itr].addEventListener('click', function (evnt) {
+          console.log('clicked up arrow ' + evnt.currentTarget);
+          let current = evnt.currentTarget;
+          current.style.display = 'none';
+          current.nextElementSibling.style.display = 'inline-block';
+          let parent = evnt.currentTarget.parentElement;
+          let testcases = parent.getElementsByClassName('testcase');
+          for(let itr=0;itr<testcases.length;itr++){
+            testcases[itr].style.display='block';
+            testcases[itr].nextElementSibling.style.display='block';
+            testcases[itr].nextElementSibling.nextElementSibling.style.display='block';
+          }
+        })
+      }
+
+      
+    }
+  </script>
+</head>
+
+<body onload="loadFunc();" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+  <script>
+    $(document).ready(function () {
+      console.log("ready");
+        $('#paginatedTable').DataTable({
+          "pageLength" : 8,
+          "searching" : false,
+          "lengthChange" : false,
+          "pagingType" : 'numbers'
+        });
+      });
+  </script>
+  <h2 style="color: #ff7f00;">iSelect Partners InSprint - Test Execution Summary</h2>
+  
+
+  <table border="0" cellpadding="0" cellspacing="0" style="width: 25%;display:inline-block;">
+    <tr class="overview">
+      <td style="background-color: #fce4cc;" colspan="3" title="{{browser}}"><strong>Browser:</strong> {{browser}}</td>
+    </tr>
+    <tr class="overview">
+      <td colspan="3"><strong>Timestamp:</strong> {{timestamp}}</td>
+    </tr>
+    {{!-- <tr class="overview last">
+      <td colspan="3"><strong>Tests:</strong> {{totalTests}}<br></td>
+    </tr> --}}
+    <tr>
+      <td style="background-color: #fce4cc;" class="totalScenarios"><strong>{{totalScenarios}}</strong> Total Scenarios</td>
+    </tr>
+    <tr>
+      <td class="total"><strong>{{totalTestCases}}</strong> Total Testcases</td>
+    </tr>
+    <tr>
+    <td class="pass"><strong>{{totalPassed}}</strong> Passed</td>
+    </tr>
+    <tr>
+    <td class="fail"><strong>{{totalFailed}}</strong> Failures</td>
+    </tr>
+  </table>
+
+     {{!-- <canvas id="bar-chart" style="display: inline-block;"></canvas> --}}
+    <div id="pie-chart">
+      <canvas id="pie-canvas" style="display: inline-block;padding-bottom: 15px;"></canvas>
+    </div>
+
+    <div id="dataPoints" style="display: none;">
+      {{!-- <p>{{results.passed}}</p>
+      <p>{{results.failed}}</p> --}}
+      <p>{{totalPassed}}</p>
+      <p>{{totalFailed}}</p>
+      <p>{{testcases}}</p>
+    </div>
+   
+    <script>
+        let values=document.getElementById("dataPoints").children;
+        let passed=Number(values[0].textContent);
+        let failed=Number(values[1].textContent);
+        let allTestCases = values[2]
+
+new Chart(document.getElementById("pie-canvas"), {
+    type: 'pie',
+    data: {
+      labels: ["Passed","Failed"],
+      datasets: [
+        {
+          label: "Automation Test Results",
+          {{!-- backgroundColor: ["#1b8214", "#cf180e"], --}}
+          backgroundColor: ["#389432", "#d4372f"],
+          data:[passed,failed]
+        }
+      ]
+    },
+    options: {
+        responsive:false,
+        maintainAspectRatio:false,
+        plugins:{
+          datalabels:{
+            formatter:(value, ctx) => {                        
+                          let sum = 0;
+                          let dataArr = ctx.chart.data.datasets[0].data;
+                          dataArr.map(data => {
+                              sum += data;
+                          });
+                          let percentage = (value*100 / sum).toFixed(1)+"%";
+                          return percentage;
+                        },
+            color: '#fff',
+          }
+        },
+      legend: { 
+        display: true,
+        position:"right",
+        labels:{
+          fontSize:16,
+          boxWidth:15
+        }
+        },
+      title: {
+        display: false,
+        text: 'Automation Test Results',
+        fontSize:20
+      },
+      tooltips:{
+        titleFontSize:10,
+        bodyFontSize:10
+      }
+
+    }
+
+
+});
+
+
+    </script>
+
+
+<table data-toggle="table" class="table" id="paginatedTable" data-pagination="true"  data-page-size="5" style="width: 100%;">
+  <thead>
+    <tr>
+      <td data-field='Test Scenarios'>Test Scenarios</td>
+      <td data-field='Test Cases' style="width: 30%;">Test Cases</td>
+      <td data-field='Passed Assertions' style="width: 11%;">Passed Assertions</td>
+      <td data-field='Failed Assertions' style="width: 11%;">Failed Assertions</td>
+      <td>Time</td>
+    </tr>
+  </thead>
+  <tbody>
+{{#each filteredTests}}
+<tr>
+  <td>{{this.testScenario}}</td>
+  <td>{{this.testCase}}</td>
+  <td class="passed-tc">{{this.passed}} ✓</td>
+  <td class="failed-tc">{{this.failed}} ✕</td>
+  <td>{{this.time}}</td>
+</tr>
+
+{{/each}}
+</tbody>
+</table>
+{{!-- <button id="pageNumber1">1</button> --}}
+
+<div id="showHide" onclick="showHideToggle();">
+  Show/Hide Passed
+</div>
+<script>
+  let showPassed=true;
+  function showHideToggle(){
+    const passed = document.querySelectorAll('li .success');
+    if(showPassed){
+      for(let itr=0;itr<passed.length;itr++){
+        passed[itr].parentElement.style.display='none';
+        showPassed=false;
+      }
+    }
+    else{
+      for (let itr = 0; itr < passed.length; itr++) {
+        passed[itr].parentElement.style.display = 'block';
+        showPassed = true;
+      }
+    }
+  }
+</script>
+{{!-- <div id="testCaseList"> --}}
+  {{#each filteredTestInfo}}
+      <div class="scenario-container">
+      <div class="scenario">{{@key}}</div>
+      {{fontawesome-icon icon="caret-up"}}
+      {{fontawesome-icon icon="caret-down"}}
+      {{#each this.completed}}
+        <h3 class="testcase">{{addOne @index}}. {{@key}}</h3>
+        <ul class="assertions">
+          {{#each this.assertions}}
+            <li>
+              {{#if this.failure}}
+                <span class="error">&#10006;</span>
+                {{this.message}}
+              {{else}}
+                <span class="success">&#10004;</span>
+                {{this.message}}
+              {{/if}}
+
+              {{#if this.failure}}
+                {{this.failure}}
+              {{/if}}
+
+              {{#if this.stacktrace}}
+                <div class="stacktrace">
+                    <a href="#">view stacktrace</a>
+                    <code><pre>{{this.stacktrace}}</pre></code>
+                </div>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
+
+         <p class="final-result">
+          {{#if this.failed}}
+            <span class="error"><strong>FAILED:</strong></span>
+            <span class="error"><strong>{{this.failed}}</strong></span> assertions failed and
+            <span class="success"><strong>{{this.passed}}</span></strong> passed. ({{this.time}}s)
+            {{fontawesome-icon icon="image"}}
+
+          {{else}}
+            <span class="success"><strong>OK.</strong></span>
+            <span class="success"><strong>{{this.passed}}</strong></span> assertions passed. ({{this.time}}s)
+          {{/if}}
+        </p>
+        {{#if this.failed}}
+            <img class="failed-screenshot" id="{{@key}}" src={{replaceAndConcate @key}} alt="Error screenshot" />
+        {{/if}}
+      {{/each}}
+
+      {{#if this.skipped}}
+        <h4>skipped</h4>
+        <ul>
+          {{#each this.skipped}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
+      </div>
+      <hr>
+  {{/each}}
+{{!-- </div> --}}
+{{!-- <div class="wrapper"></div> --}}
+
+
+  <img src='https://www.iselect.com.au/content/themes/iselect/assets/images/menu-nav/logo-new.svg' alt="iSelct Logo" id="logo"/>
+
+
+  <script>
+  $(function() {
+    $('div.stacktrace').on('click', 'a', function(evt) {
+      evt.preventDefault();
+
+      var $link = $(this);
+      var $code = $link.parent().find('code');
+
+      $code.is(':visible') ? $link.text('hide stacktrace'):
+                             $link.text('view stacktrace');
+
+      $code.toggle();
+    });
+  });
+  </script>
+</body>
+</html>

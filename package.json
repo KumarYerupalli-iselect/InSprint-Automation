@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf ./tests_output/failedScreenshots && rimraf ./tests/build && rimraf ./tests/reports/*.html",
+    "clean": "rimraf ./tests_output/ && rimraf ./tests/build && rimraf ./tests/reports/*.html",
     "compile": "cd ./tests && tsc --outDir ./build/",
-    "regressionTests:uat": "npx nightwatch ./tests/build/functionalTests/Regression --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
-    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/SprintQ2_07/PS-865.js --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
-    "regressionTests:prod": "npx nightwatch ./tests/build/functionalTests/Regression --reporter ./tests/html-reporter.js -c ./tests/configFiles/nightwatch.conf.js -e PROD",
+    "regressionTests:uat": "npx nightwatch ./tests/build/functionalTests/Regression --reporter html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
+    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/SprintQ2_09 --reporter html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
+    "regressionTests:prod": "npx nightwatch ./tests/build/functionalTests/Regression --reporter html-reporter.js -c ./tests/configFiles/nightwatch.conf.js -e PROD",
     "testSafari:browserstack": "npx nightwatch -c ./tests/configFiles/nightwatch.browserstack.conf.js ./build/functionalTests -a quickTestCheck -e browserstack.safari",
     "test": "npm run clean && npm run compile && npm run runSingleTest"
   },
@@ -23,16 +23,16 @@
     "fs": "^0.0.1-security",
     "geckodriver": "^3.0.1",
     "handlebars": "^4.7.7",
-    "nightwatch": "^2.1.5",
+    "nightwatch": "^2.2.2",
     "nightwatch-html-reporter": "^2.0.6",
+    "node-random-name": "^1.0.1",
     "path": "^0.12.7",
     "pretty-error": "^4.0.0",
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "fs": "^0.0.1-security",
-    "handlebars": "^4.7.7",
-    "node-random-name": "^1.0.1",
-    "path": "^0.12.7"
+    "@fortawesome/fontawesome-free": "^6.2.0",
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0"
   }
 }

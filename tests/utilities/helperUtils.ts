@@ -1,6 +1,4 @@
 import { NightwatchBrowser } from "nightwatch";
-import {randomName} from 'node-random-name';
-const randomName = require('node-random-name');
 
 export const helperUtils = {
   click(
@@ -298,6 +296,21 @@ export const helperUtils = {
       });
   },
 
+  moveToElement1(browser: NightwatchBrowser, selector: string) {
+    try {
+      browser.useXpath()
+        .getLocationInView(selector, (result) => {
+          browser.moveToElement(selector, result.value[0], result.value[1], function () {
+
+          })
+        })
+    }
+    catch (err) {
+      console.log(err)
+    }
+    return browser;
+  },
+
   random(length: number) {
     return Math.random().toString(16).substr(2, length);
   },
@@ -363,14 +376,6 @@ export const helperUtils = {
       if (month.length == 1) month = "0" + month;
       return date + "-" + month + "-" + day.getFullYear();
     }
-  },
-
-  getFirstName() {
-    return randomName({ first: true, gender: "male" });
-  },
-
-  getLastName() {
-    return randomName({ last: true, gender: "male" });
   },
 
   waitForElementPresentToClick(
