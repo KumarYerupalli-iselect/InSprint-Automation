@@ -4,6 +4,8 @@ tests/build/functionalTests
 tests/build/pageObjects
 tests/build/utilities
 tests/screenshots
+allure-report
+allure-results
 package-lock.json
 .prettierignore
 .prettierrc
