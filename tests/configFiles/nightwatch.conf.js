@@ -1,4 +1,5 @@
 const path = require('path');
+const allureReporter = require('nightwatch-allure');
 
 module.exports = {
 
@@ -17,6 +18,11 @@ module.exports = {
       // very verbose geckodriver logs
       // '-vv'
     ]
+  },
+
+  reporter: (results,done)=>{
+    const reporter = new allureReporter.NightwatchAllureReporter({});
+    reporter.write(results,done);
   },
 
   test_settings: {

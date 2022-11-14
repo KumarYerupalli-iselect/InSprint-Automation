@@ -3,6 +3,7 @@ tests_output
 tests/build/functionalTests
 tests/build/pageObjects
 tests/build/utilities
+tests/screenshots
 package-lock.json
 .prettierignore
 .prettierrc

@@ -1,0 +1,39 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "children" : [ {
+    "name" : "PS-993",
+    "uid" : "f2c2ad976c8bd673",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1668404159604,
+      "stop" : 1668404237574,
+      "duration" : 77970
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "newPassed" : false,
+    "newBroken" : false,
+    "retriesCount" : 4,
+    "retriesStatusChange" : true,
+    "parameters" : [ "CHROME_107.0.5304.88__" ]
+  }, {
+    "name" : "PS-994",
+    "uid" : "62ca62a11f5dcbaa",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1668407923468,
+      "stop" : 1668408787868,
+      "duration" : 864400
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "newPassed" : false,
+    "newBroken" : false,
+    "retriesCount" : 0,
+    "retriesStatusChange" : false,
+    "parameters" : [ "CHROME_107.0.5304.88__" ]
+  } ],
+  "name" : "behaviors"
+}

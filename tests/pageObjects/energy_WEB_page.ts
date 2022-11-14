@@ -408,7 +408,7 @@ export const energywebpage = {
         helperUtils.click(browser, 'useXpath', this.elements.approvedProductListLink, 'Clicked on Approved Product List Link');
         browser.frame(0);
         for(let i=1; i<=6; i++) {
-            helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', '(//li[text()="Simply Energy"])['+ i +']', 5000, 100, undefined, 'Simply Energy is Present in Providers Page');
+            helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', '(//li[text()="Simply Energ"])['+ i +']', 5000, 100, undefined, 'Simply Energy is Present in Providers Page');
         }
         browser.frameParent();
      },

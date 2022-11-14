@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf ./tests_output/ && rimraf ./tests/build && rimraf ./tests/reports/*.html",
+    "clean": "rimraf ./tests_output/ && rimraf ./tests/build && rimraf ./tests/reports/*.html && rimraf ./tests/screenshots/",
     "compile": "cd ./tests && tsc --outDir ./build/",
     "regressionTests:uat": "npx nightwatch ./tests/build/functionalTests/Regression --reporter html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
-    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/SprintQ2_09 --reporter html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
+    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/SprintQ2_10/PS-994.js --reporter=html -c ./tests/configFiles/nightwatch.conf.js",
     "regressionTests:prod": "npx nightwatch ./tests/build/functionalTests/Regression --reporter html-reporter.js -c ./tests/configFiles/nightwatch.conf.js -e PROD",
     "testSafari:browserstack": "npx nightwatch -c ./tests/configFiles/nightwatch.browserstack.conf.js ./build/functionalTests -a quickTestCheck -e browserstack.safari",
-    "test": "npm run clean && npm run compile && npm run runSingleTest"
+    "allure" : "allure generate ./allure-results --clean && allure open",
+    "test": "npm run clean && npm run compile && npm run runSingleTest && npm run allure"
   },
   "keywords": [],
   "author": "Kumar Raja Yerupalli (Peter)",
@@ -23,7 +24,8 @@
     "fs": "^0.0.1-security",
     "geckodriver": "^3.0.1",
     "handlebars": "^4.7.7",
-    "nightwatch": "^2.2.2",
+    "nightwatch": "^2.4.2",
+    "nightwatch-allure": "^1.2.0",
     "nightwatch-html-reporter": "^2.0.6",
     "node-random-name": "^1.0.1",
     "path": "^0.12.7",

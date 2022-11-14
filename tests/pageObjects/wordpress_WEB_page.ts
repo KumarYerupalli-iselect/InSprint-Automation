@@ -35,7 +35,22 @@ export const wordpresswebpage = {
         travelVerticalLink : '//a[@href="https://wwwuat.iselect.com.au/travel-insurance/"]',
         elecAndGasVerticalLink : '//a[@href="https://wwwuat.iselect.com.au/energy/"]',
         internetVerticalLink : '//a[@href="https://wwwuat.iselect.com.au/internet/"]',
-        incomeProtectionVerticalLink : '//a[@href="https://wwwuat.iselect.com.au/life/income-protection-insurance/"]'
+        incomeProtectionVerticalLink : '//a[@href="https://wwwuat.iselect.com.au/life/income-protection-insurance/"]',
+
+        /**links not to be present */
+        incProtectionLink1 : '//a[text()="MLC Income Protection"]',
+        incProtectionLink2 : '//a[text()="TAL Income Protection"]',
+        incProtectionLink3 : '//a[text()="CommInsure Income Protection"]',
+        incProtectionLink4 : '//a[text()="Asteron Income Protection"]',
+        incProtectionLink5 : '//a[text()="Income Protection Cover"]',
+
+        /** Link not to be visible in elec and gas */
+        elecAndGasLink1 : '//a[text()="Wind energy"]',
+        elecAndGasLink2 : '//a[text()="Hydroelectricity"]',
+        elecAndGasLink3 : '//a[text()="Renewable Energy"]',
+        elecAndGasLink4 : '//a[text()="Benefits of solar energy"]',
+
+
     },
 
     ValidateTextChangeInVerticalsWordPress(browser:NightwatchBrowser, wordPress ?: boolean) {
@@ -120,7 +135,53 @@ export const wordpresswebpage = {
      launchUrl(browser:NightwatchBrowser, url:string) {
         browser.url(url);
         browser.assert.urlEquals(url, 'Launched URL : '+url);
-     }
+     },
 
-    
+     validateIncomeProtectionLinksNotToBeVisible(browser:NightwatchBrowser, wordPress?:boolean, i?:number) {
+        if(wordPress == true) {
+            helperUtils.moveToElement(browser, this.elements.financeLink, 'Moved the cursor to Finance link');
+            helperUtils.moveToElement(browser, this.elements.incomeprotectionLink, 'Moved the cursor to Income Protection link');
+            browser.pause(2000);
+            browser.saveScreenshot('./tests/screenshots/'+'wordpress.png');
+            browser.screenshot(true);
+            browser.waitForElementNotPresent(this.elements.incProtectionLink1, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink1 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.incProtectionLink2, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink2 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.incProtectionLink3, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink3 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.incProtectionLink4, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink4 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.incProtectionLink5, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink5 +' link is removed');
+        } else {
+            helperUtils.moveToElement(browser, this.elements.financeOthVertLink, 'Moved the cursor to Finance link');
+            helperUtils.moveToElement(browser, this.elements.incomeProtectionVerticalLink, 'Moved the cursor to Income Protection link');
+            browser.pause(2000);
+            browser.saveScreenshot('./tests/screenshots/'+ i + '.png');
+            browser.waitForElementNotPresent(this.elements.incProtectionLink1, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink1 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.incProtectionLink2, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink2 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.incProtectionLink3, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink3 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.incProtectionLink4, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink4 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.incProtectionLink5, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink5 +' link is removed');
+        }
+     },
+
+
+     validateElecAndGasLinksNotToBeVisible(browser:NightwatchBrowser, wordPress?:boolean, i?:number) {
+        if(wordPress == true) {
+            helperUtils.moveToElement(browser, this.elements.utlitiesLink, 'Moved the cursor to utilities link');
+            helperUtils.moveToElement(browser, this.elements.elecAndGasLink, 'Moved the cursor to Electricity and Gas link');
+            browser.pause(2000);
+            browser.saveScreenshot('./tests/screenshots/'+'wordpress.png');
+            browser.waitForElementNotPresent(this.elements.elecAndGasLink1, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink1 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.elecAndGasLink2, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink2 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.elecAndGasLink3, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink3 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.elecAndGasLink4, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink4 +' link is removed');
+        } else {
+            helperUtils.moveToElement(browser, this.elements.utlitiesOthVertLink, 'Moved the cursor to utilities link');
+            helperUtils.moveToElement(browser, this.elements.elecAndGasVerticalLink, 'Moved the cursor to Electricity and Gas link');
+            browser.pause(2000);
+            browser.saveScreenshot('./tests/screenshots/'+ i + '.png');
+            browser.waitForElementNotPresent(this.elements.elecAndGasLink1, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink1 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.elecAndGasLink2, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink2 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.elecAndGasLink3, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink3 +' link is removed');
+            browser.waitForElementNotPresent(this.elements.elecAndGasLink4, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink4 +' link is removed');
+        }
+     }
 }

@@ -1,0 +1,107 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "PS-993",
+    "uid" : "351cea5d9eb8a376",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "passed",
+    "time" : {
+      "start" : 1668401696910,
+      "stop" : 1668402859910,
+      "duration" : 1163000
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "newPassed" : false,
+    "newBroken" : false,
+    "retriesCount" : 0,
+    "retriesStatusChange" : false,
+    "parameters" : [ "CHROME_107.0.5304.88__" ]
+  }, {
+    "name" : "PS-993",
+    "uid" : "f2c2ad976c8bd673",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "passed",
+    "time" : {
+      "start" : 1668404159604,
+      "stop" : 1668404237574,
+      "duration" : 77970
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "newPassed" : false,
+    "newBroken" : false,
+    "retriesCount" : 4,
+    "retriesStatusChange" : true,
+    "parameters" : [ "CHROME_107.0.5304.88__" ]
+  }, {
+    "name" : "PS-993",
+    "uid" : "91404be29d2bf22d",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "passed",
+    "time" : {
+      "start" : 1668403782891,
+      "stop" : 1668403823391,
+      "duration" : 40500
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "newPassed" : false,
+    "newBroken" : false,
+    "retriesCount" : 0,
+    "retriesStatusChange" : false,
+    "parameters" : [ "CHROME_107.0.5304.88__" ]
+  }, {
+    "name" : "PS-994",
+    "uid" : "62ca62a11f5dcbaa",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "passed",
+    "time" : {
+      "start" : 1668407923468,
+      "stop" : 1668408787868,
+      "duration" : 864400
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "newPassed" : false,
+    "newBroken" : false,
+    "retriesCount" : 0,
+    "retriesStatusChange" : false,
+    "parameters" : [ "CHROME_107.0.5304.88__" ]
+  }, {
+    "name" : "PS-993",
+    "uid" : "fb7a7d74d88c9c12",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "broken",
+    "time" : {
+      "start" : 1668403311594,
+      "stop" : 1668403344014,
+      "duration" : 32420
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "newPassed" : false,
+    "newBroken" : false,
+    "retriesCount" : 0,
+    "retriesStatusChange" : false,
+    "parameters" : [ "CHROME_107.0.5304.88__" ]
+  }, {
+    "name" : "PS-993",
+    "uid" : "f506766a5ba9bcd9",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "passed",
+    "time" : {
+      "start" : 1668403964797,
+      "stop" : 1668404026597,
+      "duration" : 61800
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "newPassed" : false,
+    "newBroken" : false,
+    "retriesCount" : 0,
+    "retriesStatusChange" : false,
+    "parameters" : [ "CHROME_107.0.5304.88__" ]
+  } ],
+  "name" : "timeline"
+}
