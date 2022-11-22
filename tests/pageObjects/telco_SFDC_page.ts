@@ -191,8 +191,8 @@ export const telcoSfdcPage = {
     //browser.useuseXpath().assert.equal(actualPrice, expectedPrice, actualPrice + ' : Actual Price and ' + expectedPrice + ' : Expected Price Matches');
   },
 
-  closeOpenedtab(browser:NightwatchBrowser) {
-      if(browser.useXpath().assert.visible(this.elements.tabCloseBtn, 'Close Button is Visible.')) {
+  async closeOpenedtab(browser:NightwatchBrowser) {
+      if(await browser.useXpath().assert.visible(this.elements.tabCloseBtn, 'Close Button is Visible.')) {
         helperUtils.click(browser,'useXpath', this.elements.tabCloseBtn, 'Clicked on Close button in Tab');
       } else {
         

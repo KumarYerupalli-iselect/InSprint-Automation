@@ -126,7 +126,7 @@ export const healthWebPage = {
      */
      customizePersonalDetails(browser:NightwatchBrowser, 
         membershipType : string, addressChange : boolean, dobChange : boolean, 
-        partnerdobChange:boolean, newEditAddressCode?:string, newEditAddress?: string, 
+        partnerdobChange:boolean, newEditAddressCode?:string, newEditAddress?: string , 
         newEditDOB? : string, partnerCoveredByFund?: string, adultDependantOpt?: string, 
         adultDepandantDOB?: string) { 
 
@@ -313,13 +313,13 @@ export const healthWebPage = {
     },
 
     /**Fills the Your Needs Page in Health */
-    fillYourNeedsPage(browser: NightwatchBrowser, age:string, incomeTier : string, incomeCode : string, adultDepOpt?: string){
+    async fillYourNeedsPage(browser: NightwatchBrowser, age:string, incomeTier : string, incomeCode : string, adultDepOpt?: string){
         this.selectCoverTypeCoverConsideration(browser);
         browser.pause(3000);
         helperUtils.enterInputValueAndClickEnter(browser, this.elements.DOBField, age);
         browser.click('//p[text()="Your Government Rebate"]');
         helperUtils.click(browser, 'useXpath', "(//p[text()='"+ incomeTier +"'])["+ incomeCode +"]/../../..", "Selecting the Income Tier"); 
-        if(browser.isVisible(this.elements.adultDependantsHeader)) {
+        if(await browser.isVisible(this.elements.adultDependantsHeader)) {
             helperUtils.click(browser, 'useXpath', '//input[@value="'+ adultDepOpt +'"]', 'Selected ' + adultDepOpt + ' option');
         }else {
             console.log("No Adult Dependant.. Sorry");
@@ -428,8 +428,8 @@ export const healthWebPage = {
         })
     },
 
-    verifyAndValidateProduct(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string, productLhcPrice : string) {
-        if(browser.waitForElementPresent('//span[text()="'+ productName +'"]', 5000, 500, undefined, undefined, 'Product is Visible')) {
+    async verifyAndValidateProduct(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string, productLhcPrice : string) {
+        if(await browser.waitForElementPresent('//span[text()="' + productName + '"]', 5000, 500, undefined, undefined, 'Product is Visible')) {
             //this.demoTestAsync(browser, productName);
             this.validateProductPrice(browser, productName, excess, productID, productPrice);
             this.validateProductLHCPrice(browser, productID, productLhcPrice);
@@ -445,8 +445,8 @@ export const healthWebPage = {
         } 
     },
 
-    verifyAndValidateProductDualPricing(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string, productLhcPrice : string) {
-        if(browser.waitForElementPresent('//span[text()="'+ productName +'"]', 5000, 500, undefined, undefined, 'Product is Visible')) {
+    async verifyAndValidateProductDualPricing(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string, productLhcPrice : string) {
+        if(await browser.waitForElementPresent('//span[text()="'+ productName +'"]', 5000, 500, undefined, undefined, 'Product is Visible')) {
             this.validateProductDualPricing(browser, productName, excess, productID, productPrice);
             this.validateProductLHCDualPricing(browser, productID, productLhcPrice);
         } else {

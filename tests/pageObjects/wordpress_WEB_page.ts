@@ -50,6 +50,13 @@ export const wordpresswebpage = {
         elecAndGasLink3 : '//a[text()="Renewable Energy"]',
         elecAndGasLink4 : '//a[text()="Benefits of solar energy"]',
 
+        /** Text Logo and Banner removal for PS-985 */
+        textRemoval : '//h2[contains(text(), "Let’s help get you sorted from our range of mobile plans*")]',
+        logoRemoval : '//img[@data-src="https://www.iselect.com.au/content/themes/iselect/css/images/xeccc_logo.png.pagespeed.ic.JeQjLTTuv_.webp"]',
+        awardsBannerRemoval : '//li[@class="partner-awards"]',
+
+        travelTISPartnerLogo : '//img[@data-src="https://wwwuat.iselect.com.au/content/uploads/2022/11/xtis-160x100.png.pagespeed.ic.28X6BORjMY.webp"]'
+
 
     },
 
@@ -142,7 +149,7 @@ export const wordpresswebpage = {
             helperUtils.moveToElement(browser, this.elements.financeLink, 'Moved the cursor to Finance link');
             helperUtils.moveToElement(browser, this.elements.incomeprotectionLink, 'Moved the cursor to Income Protection link');
             browser.pause(2000);
-            browser.saveScreenshot('./tests/screenshots/'+'wordpress.png');
+            browser.saveScreenshot('./tests/screenshots/'+ browser.currentTest.name +'/'+'wordpress.png');
             browser.screenshot(true);
             browser.waitForElementNotPresent(this.elements.incProtectionLink1, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink1 +' link is removed');
             browser.waitForElementNotPresent(this.elements.incProtectionLink2, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink2 +' link is removed');
@@ -153,7 +160,7 @@ export const wordpresswebpage = {
             helperUtils.moveToElement(browser, this.elements.financeOthVertLink, 'Moved the cursor to Finance link');
             helperUtils.moveToElement(browser, this.elements.incomeProtectionVerticalLink, 'Moved the cursor to Income Protection link');
             browser.pause(2000);
-            browser.saveScreenshot('./tests/screenshots/'+ i + '.png');
+            browser.saveScreenshot('./tests/screenshots/'+ browser.currentTest.name +'/'+ i + '.png');
             browser.waitForElementNotPresent(this.elements.incProtectionLink1, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink1 +' link is removed');
             browser.waitForElementNotPresent(this.elements.incProtectionLink2, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink2 +' link is removed');
             browser.waitForElementNotPresent(this.elements.incProtectionLink3, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.incProtectionLink3 +' link is removed');
@@ -168,7 +175,7 @@ export const wordpresswebpage = {
             helperUtils.moveToElement(browser, this.elements.utlitiesLink, 'Moved the cursor to utilities link');
             helperUtils.moveToElement(browser, this.elements.elecAndGasLink, 'Moved the cursor to Electricity and Gas link');
             browser.pause(2000);
-            browser.saveScreenshot('./tests/screenshots/'+'wordpress.png');
+            browser.saveScreenshot('./tests/screenshots/'+ browser.currentTest.name +'/'+'wordpress.png');
             browser.waitForElementNotPresent(this.elements.elecAndGasLink1, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink1 +' link is removed');
             browser.waitForElementNotPresent(this.elements.elecAndGasLink2, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink2 +' link is removed');
             browser.waitForElementNotPresent(this.elements.elecAndGasLink3, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink3 +' link is removed');
@@ -177,11 +184,35 @@ export const wordpresswebpage = {
             helperUtils.moveToElement(browser, this.elements.utlitiesOthVertLink, 'Moved the cursor to utilities link');
             helperUtils.moveToElement(browser, this.elements.elecAndGasVerticalLink, 'Moved the cursor to Electricity and Gas link');
             browser.pause(2000);
-            browser.saveScreenshot('./tests/screenshots/'+ i + '.png');
+            browser.saveScreenshot('./tests/screenshots/'+ browser.currentTest.name +'/'+ i + '.png');
             browser.waitForElementNotPresent(this.elements.elecAndGasLink1, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink1 +' link is removed');
             browser.waitForElementNotPresent(this.elements.elecAndGasLink2, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink2 +' link is removed');
             browser.waitForElementNotPresent(this.elements.elecAndGasLink3, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink3 +' link is removed');
             browser.waitForElementNotPresent(this.elements.elecAndGasLink4, 100, 0, undefined, undefined, 'Validation successful.. '+ this.elements.elecAndGasLink4 +' link is removed');
         }
+     },
+
+     validateTextLogoAndBannerRemoval(browser : NightwatchBrowser) {
+        //browser.url('https://wwwuat.iselect.com.au/mobile');
+        //browser.pause(5000);
+        //browser.waitForElementNotPresent(this.elements.textRemoval, 5000, 50, undefined, undefined, 'Validation Successful.. Header Text is Removed');
+        //browser.saveScreenshot('./tests/screenshots/');
+
+        browser.url('https://wwwuat.iselect.com.au/energy/');
+        helperUtils.moveToElement(browser, '//a[@href="/iselect-core/v5/popups/cookieshelp/"]', 'Moved to Bottom of te Page');
+        browser.waitForElementNotPresent(this.elements.logoRemoval, 500, 50, undefined, undefined, 'Validation Successful.. Everest Comparator Logo is Removed');
+        browser.saveScreenshot('./tests/screenshots/'+ browser.currentTest.name +'/1.png');
+        browser.waitForElementNotPresent(this.elements.awardsBannerRemoval, 500, 50, undefined, undefined, 'Validation Successful.. Awards Banner is Removed');
+        browser.saveScreenshot('./tests/screenshots/'+ browser.currentTest.name +'/2.png');
+     },
+
+     validateTISLogAdded(browser : NightwatchBrowser) {
+        browser.url('https://wwwuat.iselect.com.au/travel-insurance/');
+        helperUtils.moveToElement(browser, this.elements.travelTISPartnerLogo, "Hovered to Our Partners Section");
+        browser.waitForElementVisible(this.elements.travelTISPartnerLogo, 10000, 1000, undefined, () => {
+            browser.pause(3000);
+            browser.saveScreenshot('./tests/screenshots/'+ browser.currentTest.name +'/1.png');
+        }, 'Travel Insurance Saver logo is Added in Partners Section in Travel Vertical');
+        
      }
 }
