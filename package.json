@@ -7,7 +7,7 @@
     "clean": "rimraf ./tests_output/ && rimraf ./tests/build && rimraf ./tests/reports/*.html && rimraf ./tests/screenshots/",
     "compile": "cd ./tests && tsc --outDir ./build/",
     "regressionTests:uat": "npx nightwatch ./tests/build/functionalTests/Regression --reporter html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
-    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/SprintQ2_10 --reporter=html -c ./tests/configFiles/nightwatch.conf.js",
+    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/SprintQ2_12/PS-1024.js --reporter=html -c ./tests/configFiles/nightwatch.conf.js",
     "regressionTests:prod": "npx nightwatch ./tests/build/functionalTests/Regression --reporter html-reporter.js -c ./tests/configFiles/nightwatch.conf.js -e PROD",
     "testSafari:browserstack": "npx nightwatch -c ./tests/configFiles/nightwatch.browserstack.conf.js ./build/functionalTests -a quickTestCheck -e browserstack.safari",
     "allure": "allure generate ./allure-results --clean && allure open",
@@ -35,6 +35,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.2.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
-    "@fortawesome/free-solid-svg-icons": "^6.2.0"
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "csv-parse": "^5.3.3"
   }
 }

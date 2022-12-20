@@ -272,7 +272,8 @@ export const healthWebPage = {
      */
     customizeCoverDetails(browser:NightwatchBrowser, coverType: string, priceType : string,  incomeTierType : string) {
         /** Selects the Type of Cover Eg : Bronze, gold, silver */
-        helperUtils.click(browser, 'useXpath', '//li[@id="'+ coverType +'"]//span', 'Selected ' + coverType + ' Cover');
+        helperUtils.moveToElement(browser, '//li[@id="'+ coverType +'"]//span', " Moved to Element");
+        //helperUtils.click(browser, 'useXpath', '//li[@id="'+ coverType +'"]//span', 'Selected ' + coverType + ' Cover');
         helperUtils.moveToElement(browser, '//a[@title="Terms & Conditions"]', " Moved to Element");
         /** selects the mode of price Eg : Fortnightly, Monthly, Annually */
         helperUtils.click(browser, 'useXpath', '(//label[text()="'+priceType+'"]//div//input)[1]', 'Selected ' + priceType + ' Mode of Price');
@@ -313,31 +314,44 @@ export const healthWebPage = {
     },
 
     /**Fills the Your Needs Page in Health */
-    async fillYourNeedsPage(browser: NightwatchBrowser, age:string, incomeTier : string, incomeCode : string, adultDepOpt?: string){
+    fillYourNeedsPage(browser: NightwatchBrowser, age:string, incomeTier : string, incomeCode : string, adultDepOpt?: string){
         this.selectCoverTypeCoverConsideration(browser);
         browser.pause(3000);
         helperUtils.enterInputValueAndClickEnter(browser, this.elements.DOBField, age);
         browser.click('//p[text()="Your Government Rebate"]');
         helperUtils.click(browser, 'useXpath', "(//p[text()='"+ incomeTier +"'])["+ incomeCode +"]/../../..", "Selecting the Income Tier"); 
-        if(await browser.isVisible(this.elements.adultDependantsHeader)) {
-            helperUtils.click(browser, 'useXpath', '//input[@value="'+ adultDepOpt +'"]', 'Selected ' + adultDepOpt + ' option');
-        }else {
-            console.log("No Adult Dependant.. Sorry");
-        }
+
+        helperUtils.moveToElement(browser, this.elements.ContinueBtn, "Moved to Down of the Page");
+        browser.isVisible(this.elements.adultDependantsHeader, (result) => {
+            let value = result.value;
+            if(value == true) {
+                helperUtils.click(browser, 'useXpath', '//input[@value="'+ adultDepOpt +'"]', 'Selected ' + adultDepOpt + ' option');
+            } else {
+                console.log("No Adult Dependant.. Sorry");
+            }
+        })
+
         helperUtils.click(browser,'useCss', this.elements.aplDisclaimerCheckbox, 'Checking Terms and Conditions and Privacy collection Notice');
         helperUtils.click(browser, 'useXpath', this.elements.ContinueBtn, 'Clicking on Continue Button');   
      },
 
      /**Fills the Your Priorities Page in Health */
-     fillYourPrioritiesPage(browser: NightwatchBrowser, cover : string, coverLevel : string){
-        helperUtils.click(browser,'useXpath','//span[text()="'+ cover +'"]/..', cover + ' Cover option is selected')
-        helperUtils.assertElementStatus(browser,'visible',this.elements.customizeYourHospitalCoverHeader, 'Customize your hospital cover header is visible', 'useCss');
-        browser.useCss().getText(this.elements.customizeYourHospitalCoverHeader,(text)=>{
-            console.log(" Printing the Text : " + text.value);
-        })
-        helperUtils.click(browser,'useXpath','//p[text()="'+ coverLevel +'"]/../..', coverLevel + ' category is selected');
-        helperUtils.click(browser,'useXpath',this.elements.checkboxParticipatinfun, 'Clicking on Participating Funds check box');
-        helperUtils.click(browser,'useCss',this.elements.continueBtn, 'Clicking on Continue Button');
+     fillYourPrioritiesPage(browser: NightwatchBrowser, cover : string, coverLevel ?: string){
+        if(cover == 'Hospital + Extras') {
+            helperUtils.click(browser,'useXpath','//span[text()="'+ cover +'"]/..', cover + ' Cover option is selected')
+            helperUtils.assertElementStatus(browser,'visible',this.elements.customizeYourHospitalCoverHeader, 'Customize your hospital cover header is visible', 'useCss');
+            browser.useCss().getText(this.elements.customizeYourHospitalCoverHeader, (text)=>{
+                console.log(" Printing the Text : " + text.value);
+            })
+            helperUtils.click(browser,'useXpath','//p[text()="'+ coverLevel +'"]/../..', coverLevel + ' category is selected');
+            helperUtils.click(browser,'useXpath',this.elements.checkboxParticipatinfun, 'Clicking on Participating Funds check box');
+            helperUtils.click(browser,'useCss',this.elements.continueBtn, 'Clicking on Continue Button');
+        } else {
+            helperUtils.click(browser,'useXpath','//span[text()="'+ cover +'"]/..', cover + ' Cover option is selected');
+            helperUtils.click(browser,'useXpath',this.elements.checkboxParticipatinfun, 'Clicking on Participating Funds check box');
+            helperUtils.click(browser,'useCss',this.elements.continueBtn, 'Clicking on Continue Button');
+        }
+        
     },
 
     /**Fills the Your details Page in Health */
@@ -372,13 +386,10 @@ export const healthWebPage = {
         })
     },
 
-    validateProductPrice(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string) {
-        helperUtils.click(browser, 'useXpath', '//span[text()="'+ productName +'"]/../div/select/option[text()="$500 Excess"]', 'Product Excess is Selected');
-        //browser.doubleClick('//span[text()="'+ productName +'"]/../div/select/option[text()="$500 Excess"]');
-        //browser.doubleClick('//span[text()="'+ productName +'"]/../div/select/option[text()="'+ excess +'"]');
-        helperUtils.click(browser, 'useXpath', '//span[text()="'+ productName +'"]/../div/select/option[text()="'+ excess +'"]', excess + ' is Selected');
-        browser.pause(5000);
-        browser.useXpath().getText('//td[@data-new-policy-id="'+ productID +'"]/div/div[2]/div/span',(text)=>{
+    validateProductPrice(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string, coverType ? : string) {
+        if(coverType == 'Extras Only') {
+            browser.pause(5000);
+            browser.useXpath().getText('//td[@data-new-policy-id="'+ productID +'"]/div/div[2]/div/span',(text)=>{
             console.log(text.value);
             var priceActualText = text.value
             priceActualText = priceActualText.toString();
@@ -386,19 +397,22 @@ export const healthWebPage = {
             priceActualText = priceActualText.trim();
             console.log(priceActualText);
             browser.assert.equal(priceActualText, productPrice, "Actual Price "+ priceActualText + " Matches with Expected Price "+productPrice);
-
-            // var priceActualText1 = priceActualText.split(' ');
-            // if(priceActualText1[1] == undefined) {
-            //     console.log(priceActualText);
-            //     browser.assert.equal(priceActualText, productPrice, "Actual Price "+ priceActualText + " Matches with Expected Price "+productPrice);
-            // } else {
-            //     priceActualText = priceActualText.replace(' ','');
-            //     console.log(priceActualText);
-            //     browser.assert.equal(priceActualText, productPrice, "Actual Price "+ priceActualText + " Matches with Expected Price "+productPrice);
-                
-            // }
-           
-        });
+            });
+        } else {
+            helperUtils.click(browser, 'useXpath', '//span[text()="'+ productName +'"]/../div/select/option[text()="$500 Excess"]', 'Product Excess is Selected');
+            helperUtils.click(browser, 'useXpath', '//span[text()="'+ productName +'"]/../div/select/option[text()="'+ excess +'"]', excess + ' is Selected');
+            browser.pause(5000);
+            browser.useXpath().getText('//td[@data-new-policy-id="'+ productID +'"]/div/div[2]/div/span',(text)=>{
+                console.log(text.value);
+                var priceActualText = text.value
+                priceActualText = priceActualText.toString();
+                priceActualText = priceActualText.substr(1,7);
+                priceActualText = priceActualText.trim();
+                console.log(priceActualText);
+                browser.assert.equal(priceActualText, productPrice, "Actual Price "+ priceActualText + " Matches with Expected Price "+productPrice);
+            });
+        }
+        
     },
 
     validateProductDualPricing(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string) {
@@ -428,18 +442,14 @@ export const healthWebPage = {
         })
     },
 
-    async verifyAndValidateProduct(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string, productLhcPrice : string) {
+    async verifyAndValidateProduct(browser:NightwatchBrowser, productName : string, excess : string, productID : string, productPrice : string, productLhcPrice : string, coverType ?: string) {
         if(await browser.waitForElementPresent('//span[text()="' + productName + '"]', 5000, 500, undefined, undefined, 'Product is Visible')) {
-            //this.demoTestAsync(browser, productName);
-            this.validateProductPrice(browser, productName, excess, productID, productPrice);
-            this.validateProductLHCPrice(browser, productID, productLhcPrice);
-            //helperUtils.click(browser, 'useXpath', '//a[@data-policy-name="Bronze Hospital $750 and Core Complete Extras"]', 'Clicked on product Apply button');
-        //  } else if(browser.click('//a[text()="2"]') && browser.waitForElementVisible('//span[text()="'+ productName +'"]', 5000, 500, undefined, undefined, 'Product is Visible')) {
-        //     this.validateProductPrice(browser, productName, excess, productID, productPrice);
-        //     this.validateProductLHCPrice(browser, productID, productLhcPrice);
-        // } else if(browser.click('//a[text()="3"]') && browser.waitForElementVisible('//span[text()="'+ productName +'"]', 5000, 500, undefined, undefined, 'Product is Visible')) {
-        //     this.validateProductPrice(browser, productName, excess, productID, productPrice);
-        //     this.validateProductLHCPrice(browser, productID, productLhcPrice);
+            if(coverType == 'Extras Only') {
+                this.validateProductPrice(browser, productName, excess, productID, productPrice, coverType);
+            } else {
+                this.validateProductPrice(browser, productName, excess, productID, productPrice);
+                this.validateProductLHCPrice(browser, productID, productLhcPrice);
+            }
         } else {
             console.log("Product Not Visible");
         } 

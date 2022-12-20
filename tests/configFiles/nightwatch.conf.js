@@ -9,6 +9,8 @@ module.exports = {
   src_folders: ["./tests/build/functionalTests/Regression"],
   page_objects_path: ["./tests/build/pageObjects"],
   globals_path: "../build/configFiles/global.js",
+  globals_path: "../build/configFiles/allureGlobal.js",
+
 
   webdriver: {
     start_process: true,

@@ -1,0 +1,73 @@
+{
+    "PS928Data" : {
+        "memebershipCoverType":[
+            "Just for me - male",
+            "Just for me - female", 
+            "For me and my partner", 
+            "For my whole family", 
+            "For my family - single parent"
+        ],
+        "Postcode":"300",
+        "Address" :"3000, Melbourne, Vic",
+        "Age":"03/12/1986",
+        "SingleIncomeTier" : ["$90,000 and under", "$90,001 to $105,000", "$105,001 to $140,000", "$140,001 and over"],
+        "SingleCodeValue" : ["2"],
+        "FamilyIncomeTier" : ["$180,000 and under", "$180,001 to $210,000", "$210,001 to $280,000", "$280,001 and over"],
+        "familyCodeValue" : ["8"],
+        "AdultDependantOpt" : ["yes","no"],
+        "FirstName": "iselect test",
+        "SurName": "test",
+        "MobileNumber": "0400 000 000",
+        "EmailID": "kumar.yerupalli@iselect.com.au",
+        "Cover" : ["Hospital + Extras", "Hospital Only", "Extras Only"],
+        "CoverLevel" : ["Basic", "Bronze", "Silver", "Gold"],
+        "Partner" : ["AHM","AIA","AU","AUO","Bupa","FRANK","GMHBA","HCF","health.com.au","LATROBE","NIB","TUH"],
+        "CoverType" : ["basic-dot","bronze-dot","silver-dot","gold-dot"],
+        "PriceType" : ["Annually","Monthly","Fortnightly"],
+        "SingleTierType" : ["Under $90,000 (Full rebate)","$90,001 - $105,000 (Tier 1)","$105,001 - $140,000 (Tier 2)","Over $140,000 (Tier 3)"],
+        "FamilyTierType" : ["Under $180,000 (Full rebate)", "$180,001 - $210,000 (Tier 1)", "$210,001 - $280,000 (Tier 2)", "Over $280,000 (Tier 3)"],
+        "ProductPrice" : "251.57",
+        "ProductLhcPrice" : "27.62",
+        "ProductName" : "Basic Essential Hospital Plus $750 Excess with Value Extras",
+        "ProductID" : "245703",
+        "Excess" : "$250 Excess",
+        "NewEditedDOB" : "28/12/1986",
+        "PartnerCoveredByFund" : ["Yes","No"],
+        "ExtendedDepOpt" : ["yes","no"],
+        "AdultDependatDOB" : "01/01/1999",
+        "NewEditedPinCode":["200","260","300","400","500","600","700","080"],
+        "NewEditedAddress" :[" SYDNEY, NSW 2000", " YARRALUMLA, ACT 2600", " MELBOURNE, VIC 3000", " SPRING HILL, QLD 4000", " ADELAIDE, SA 5000", " PERTH, WA 6000", " HOBART, TAS 7000", " DARWIN, NT 0800"]
+    },
+
+    "PS1031Data" : {
+        "PostCode":["200","260","300","400","500","600","700","080"],
+        "Address" :[" 2000, Sydney", " 2600, Yarralumla", " 3000, Melbourne", " 4000, Spring Hill", " 5000, Adelaide", " 6000, Perth", " 7000, Hobart", " 0800, Darwin"]
+    },
+
+    "PS1025Data" : {
+        "__COMMENT__" : "THIS IS THE DATA OF '''H&C''' ",
+        "Address" : "10 BENNETTS LANE, MELBOURNE VIC 3000",
+        "WhatAreYouLookingCoverOpts" : [" Looking for new cover ", " Reviewing my existing cover "],
+        "AreYouTheOpts" : [" Home Owner ", " Renter ", " Landlord "],
+        "DoYouHaveMortageOpts" : [" Yes ", " No "],
+        "PropertyOccupOpts" : [" Owner Occupied ", " Owner - yet to occupy ", " Holiday Home - Not Rented ", " Holiday Home - May be Rented "],
+        "MoveInYear" : "1996",
+        "TypeOfInsuranceOpts" : [" Home and Contents "," Contents Only "," Home Only "],
+        "StrataComplexOpts" : [" Yes ", " No "],
+        "TypeOfPropInsuringOpts" : [" Freestanding House ", " Home Unit ", " Townhouse ", " Apartment/Flat "],
+        "MaterialConstrOpts" : [" Brick Veneer "," Brick/ Double Brick "," Timber Weatherboard "," Concrete/Cement "],
+        "MaterialConstOfRoofOpts" : [" Cement Tiles "," Clay/Terracotta Tiles "," Colourbond "," Aluminium / Zinc / Iron "],
+        "HomeBuiltOpts" : [" After 2011 ", " 2000 - 2010 ", " 1990 - 1999 ", " 1980 - 1989 "],
+        "SecurityFeaturesOpts" : [" Active 24 hour Back to Base Monitored Alarm "," Deadlocks on all External Doors "," Keylocks on all External Windows "," Roller Shutters "],
+        "businessActivityOpts" : [" Yes ", " No "],
+        "TotalCostToBuildHome" : "200000",
+        "TotalCostToReplaceContents" : "20000",
+        "ExtrasCoverOnSpecCntsOpts" : [" Yes ", " No "],
+        "OptionalCoverForItemsOpts" : [" Yes ", " No "],
+        "OldestPolicyHolderDOB" : "03041986",
+        "OldestResidentDOB": "29081983",
+        "AreThereOlderPolicyHolderOpts" : [" Yes ", " No "],
+        "AnyOneAtHomeRetiredOpts" : [" Yes ", " No "],
+        "Last5BulgariesOpts" : [" Yes ", " No "]
+    }
+}

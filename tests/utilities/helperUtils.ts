@@ -80,7 +80,7 @@ export const helperUtils = {
    */
   verifyWebElementExistForInteraction(
     browser: NightwatchBrowser,
-    verificationType: "present" | "visibile" | "isVisible" | "isEnabled",
+    verificationType: "present" | "visible" | "isVisible" | "isEnabled",
     selector: string,
     waitTime: number,
     pollTime: number,
@@ -98,7 +98,7 @@ export const helperUtils = {
         },
         successMsg
       );
-    } else if (verificationType === "visibile") {
+    } else if (verificationType === "visible") {
       browser.useXpath().waitForElementVisible(
         selector,
         waitTime,

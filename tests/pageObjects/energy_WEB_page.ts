@@ -12,6 +12,8 @@ export const energywebpage = {
         callUsElement : '//a[text()="13 19 20"]',
         openingHoursLink : '//a[text()="Opening Hours"]',
         opeingHrsPage : '//div[@id="primary"]',
+        errorPageHeader : '//h1[text()="Terribly Sorry about this."]',
+        errorPageParaContent : '//h2[text()="We aren\'t able to offer you an energy comparision right now."]',
 
         approvedProductListLink : '//a[text()="Approved Product List"]',
         approvedProductListPopUp: '//h2[text()="Participating Providers and Plans for Comparison"]',
@@ -64,6 +66,9 @@ export const energywebpage = {
         mobileNo : '//input[@name="MobileNo"]',
         emailAdd : '//input[@name="EmailAddress"]',
         viewResultsBtn : '//input[@value="View Results"]',
+        yourMobileNo : '//input[@name="MobileNo"]',
+        yourEmail : '//input[@name="EmailAddress"]',
+        backBtn : '//input[@value="BACK"]',
 
         /*****************Contact Us Chat Window ******************/
         contactUsBtn : '//span[@id="helpButtonSpan"]',
@@ -73,9 +78,142 @@ export const energywebpage = {
 
         simplyEnergyLogo : '//a[@href="/energy/energy-providers/simply-energy/"]//img',
         viewOurEnergyPartnersBtn : '//a[text()="View our energy partners"]',
-        viewOurPartnerSimplyEnergyLogo : '//a[@href="/energy-providers/simply-energy/"]//img'
+        viewOurPartnerSimplyEnergyLogo : '//a[@href="/energy-providers/simply-energy/"]//img',
+
+        didYouKnowSection : '//h2[text()="Did you know?"]/../../..',
+
+        /**Compare page */
+        comparePageHeader : '//h1[text()="Electricity & Gas Comparison"]',
+        yourSearchHeader : '//h2[text()="SEARCH"]/..//h2[text()="YOUR"]',
+
+        yourSearchSection : '//div[@id="urSum"]',
+        saveSearchBtn : '//li[text()="Search saved"]',
+        shareSearchBtn : '//a[text()="Share this search"]',
+        providerSection : '//div[@id="refOpt"]//h2[text()="Provider"]/..',
+        contAndEnergyFacSheetSection : '//div[@id="refOpt"]//h2[text()="Contract length "]/..',
+        lookingToCompSection : '//div[text()="I am looking to compare"]/..',
+        plsBeAwareSection : '//b[text()="Please be aware:"]/../..',
+        paginationSection : '//b[text()="View page"]/../..',
+        shareSearchEmail : '//input[@id="email"]',
+        shareSearchSaveBtn : '//input[@value="Save"]',
+        emailSentMsg : '//h3[text()="An email will be sent to you shortly."]',
+
+        providerCB : '//input[@value="EnergyAustralia"]',
+        providerClearAllBtn : '(//a[text()="Clear All"])[1]',
+        applyNowBtn : '(//a[text()="apply now"])[1]',
+        viewPlanDetBtn : '(//a[text()="VIEW PLAN DETAILS"])[8]',
+        viewPlanDetApplyBtn : '(//a[@id="applyBtn"])[2]',
+        viewPlanDetEmailPlanDetBtn : '//a[@id="emailPlan"]',
+        viewPlanDetDetailsPage : '//h3[text()="Features"]/..',
+
+        estimatedCostToolTipBtn : '(//h2[text()="Estimated Costs"]/../div/div[2]/a)[8]',
+        estimatedCostPopUp : '//h1[text()="Estimated Cost"]/..',
+        
+        addElecBillBtn : '//a[text()="Add my electricity bill"]',
+        selectElecProviderField : '//select[@id="elecproviderlist"]',
+        electricityBillingDayField : '//input[@id="Electricity_BillingDays"]',
+        singleRateField : '//input[@id="singleRate"]/..',
+        twoRateField : '//input[@id="twoRate"]/..',
+        touField : '//input[@id="TOU"]/..',
+        elecGetYourEstimatedCost : '(//input[@value="Get your estimated cost"])[1]',
+        elecCancelBtn :'(//input[@value="CANCEL"])[1]',
+
+        addGasBillBtn : '//a[text()="Add my gas bill"]',
+        selectGasProvField : '//select[@id="gasproviderlist"]',
+        gasBillingDayField : '//input[@name="Gas_BillingDays"]',
+        gassPeakField : '//input[@id="Gas_peak"]',
+        gassOffPeakField : '//input[@id="Gas_offPeak"]',
+        gasGetYourEstimatedCost : '(//input[@value="Get your estimated cost"])[2]',
+        gasCancelBtn :'(//input[@value="CANCEL"])[2]',
+
+        estmtdElecPrice : '(//b[text()="Electricity"]/../../div[2]/div//p[text()="/30 days"])[8]',
+        estmtdGasPrice : '(//b[text()="Gas"]/../../div[2]/div//p[text()="/30 days"])[8]',
+
+        aglApplyNowBtn : '(//div[text()="AGL"])[2]/../div[12]//a[text()="apply now"]',
+        continueWithThisPlanBtn : '//input[@value="Continue with this plan"]',
+        /** Contact details Page */
+        titleDD : '//select[@name="title"]',
+        dayField : '//select[@id="birthDay"]',
+        monthField : '//select[@id="birthMonth"]',
+        yearFiled : '//select[@id="birthYear"]',
+        addAccHolderNoOpt : '//input[@id="secAccNo"]',
+        addAccHolderYesOpt : '//input[@id="secAccYes"]',
+        contactDetNextBtn : '//input[@id="sec1Btn"]',
+
+        /** Personal Details Page */
+        identificationTypeField : '//select[@id="holderCurDrive"]',
+        identificationTypeOpt : '//option[text()="Drivers Licence - VIC"]',
+
+        identificationNumberField : '//input[@id="Electricity_License"]',
+        licenseExpiryday : '//select[@id="Licence_expiry_day"]',
+        licenseExpiryMonth : '//select[@id="Licence_expiry_month"]',
+        licenseExpiryYear : '//select[@id="Licence_expiry_year"]',
+        
+        concessionHolderField : '//select[@id="holderConsCard"]',
+
+        personalDetNextBtn : '//input[@id="sec2Btn"]',
+
+        /** Connection Details Page*/
+        unitField : '//input[@id="resunitno"]',
+        streetNo : '//input[@id="resstreetno"]',
+        streetName : '//input[@id="streetNameRes"]',
+        streetType : '//select[@id="streetNameResType_S"]',
+        findAddr : '//a[@id="res"]',
+        findaddrRadioBtn : '//input[@name="resAddress"]',
+        connectionDetNextBtn : '//input[@id="sec3Btn"]',
+
+        /** Terms and conditions Page */
+        productDetailsCB : '(//input[@name="productdetailsConsent"])[1]',
+        compCB : '//input[@title="TermsConditions"]',
+        digitalSignCB : '(//input[@name="productdetailsConsent"])[2]',
+        emaiConsentCB : '//input[@name="emailConsent"]',
+        marketConsentCB : '//input[@name="marketingConsent"]',
+        creditConsentCB : '//input[@name="creditConsent"]',
+        digiSignField : '//input[@id="digiFullName"]',
+        submitBtn : '//input[@id="secAllBtn"]',
+        confirmationMsg : '//td[text()="Reference ID"]',
+
+        /** PS-1047 Ticket */
+        PartnerAwardsHeader : '//h3[text()="2019 Partner Awards"]',
+        eccLogo : '//a[@href="https://www.cuac.org.au/eccc"]',
+        iSelectABNNo : '//i[text()=" iSelect Media Pty Ltd.  "]'
+         
 
 
+    },
+
+    /** Validates the Partner Awards and Ecc Logo removed or not */
+    validatePartnerAwardsAndECCLogoRemove(browser : NightwatchBrowser) {
+        helperUtils.moveToElement(browser, this.elements.iSelectABNNo, "Moved to Bottom of the Page");
+        browser.isPresent(this.elements.PartnerAwardsHeader, (result) => {
+            let value = result.value;
+            if(value == false) {
+                browser.assert.equal(value, false, 'Validation Successful... Partner Awards is removed.');
+            } else {
+                console.log("Failedd");
+            }
+        });
+        browser.isPresent(this.elements.eccLogo, (result) => {
+            let value = result.value;
+            if(value == false) {
+                browser.assert.equal(value, false, 'Validation Successful... ECC Logo is removed.');
+            } else {
+                console.log("Failedd");
+            }
+        });
+    },
+
+    /**
+     * Select the Partner from Results Page
+     */
+     selectPartnerFromResultsPage(browser:NightwatchBrowser) {
+        browser.waitForElementVisible(this.elements.yourSearchHeader, 10000, 100, undefined, undefined, 'Validation Successful... View Results Page Loaded..');
+        browser.click('//div[@class="closeBubble"]');
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visible', this.elements.aglApplyNowBtn, 20000, 2000, undefined, 'Apply Now Button is Visible and clicking on it');
+        browser.click(this.elements.aglApplyNowBtn);
+        browser.frame(0);
+        helperUtils.click(browser, 'useXpath', '//input[@value="Continue with this plan"]', 'Clicked on Continue with this Plan Button');
+        browser.frameParent();
     },
 
     /**
@@ -92,7 +230,7 @@ export const energywebpage = {
      * @param postcode PostCode
      */
     enterAddress(browser:NightwatchBrowser, postcode : string){
-        helperUtils.enterKeys(browser, 'useXpath', this.elements.energyAddressBar, postcode, 'Address Search Bar is Visible And Entering Address');
+        helperUtils.enterKeys(browser, 'useXpath', this.elements.energyAddressBar, postcode, 'Address Search Bar is Visible And Entering Address Code : ' + postcode);
     },
 
     /**
@@ -101,22 +239,38 @@ export const energywebpage = {
      * @param addrOption AddressOption DataObject
      */
     clickOnAddressOption(browser: NightwatchBrowser, addrOption : string) {
-        helperUtils.verifyWebElementExistForInteraction(browser, 'present','//div[text()="'+ addrOption +'"]',20000, 2000, undefined, 'Drop Down Option is Visible');
-        browser.pause(5000);
-        helperUtils.moveToElement(browser, '//div[text()="'+ addrOption +'"]', 'Hovering to DropDown Option');
-        helperUtils.click(browser, 'useXpath', '//div[text()="'+ addrOption +'"]', 'Searched Address is Visible and Click on it');
+        helperUtils.verifyWebElementExistForInteraction(browser, 'present','//div[text()="'+ addrOption +'"]',20000, 2000, undefined, '-');
+        browser.pause(3000);
+        helperUtils.moveToElement(browser, '//div[text()="'+ addrOption +'"]', 'Hovering to Address DropDown Option');
+        helperUtils.click(browser, 'useXpath', '//div[text()="'+ addrOption +'"]', 'Selected Address : ' + addrOption);
         helperUtils.click(browser, 'useXpath', this.elements.startBtn, 'Start Button is Visible and Clicking On it');
     },
+
+    /**
+     * Validates Needs Page
+     */
+    validateNeedsPageLoadedOrNot(browser : NightwatchBrowser) {
+        browser.assert.titleContains('iSelect - Electricity Comparison | Gas Rates | Compare Energy Rates', 'Validation Successful... Needs Page loaded');
+    },
+
+    /**
+     * Validates Error Page
+     */
+    validateErrorPage(browser : NightwatchBrowser) {
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visible', this.elements.errorPageHeader, 10000, 1000, undefined, 'Validation Successful.. Error Page Loaded and Header Present');
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visible', this.elements.errorPageParaContent, 10000, 1000, undefined, 'Validation Successful.. Error Page Loaded and Paragraph Content Present');
+    },
+    
 
     /**
      * Validates the Call Us Section in Your Usage Page
      * @param browser Night Watch Browser
      */
      validateCallUsSection(browser:NightwatchBrowser) {
-        helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', this.elements.callUsElement, 20000, 2000, undefined, 'Call Us Element is Visbile.');
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visible', this.elements.callUsElement, 20000, 2000, undefined, 'Call Us Element is Visbile.');
         helperUtils.click(browser, 'useXpath', this.elements.openingHoursLink, 'Opening Hours Link is Visbile, Clicking on the link');
         helperUtils.switchToOtherWindow(browser, 1);
-        helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', this.elements.opeingHrsPage, 20000, 2000, undefined, 'Opening Hrs Page Loaded');
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visible', this.elements.opeingHrsPage, 20000, 2000, undefined, 'Opening Hrs Page Loaded');
     },
 
     /**
@@ -148,7 +302,7 @@ export const energywebpage = {
      */
     clickAndValidatePrivCollNotilink(browser:NightwatchBrowser){
         helperUtils.click(browser, 'useXpath', this.elements.privacyCollectionNoticeLink, 'Privacy Collection Notice link is Visible Clicking on it.');
-        helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', this.elements.privacyCollectionNoticeHeader, 10000, 1000, undefined, 'Privacy Collection Notice Header is Visible.')
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visible', this.elements.privacyCollectionNoticeHeader, 10000, 1000, undefined, 'Privacy Collection Notice Header is Visible.')
         helperUtils.validateTitle(browser, this.elements.privacyCollectionNoticePageTitle, 'Privacy Collection Notice Page is Loaded Successfully and Title Matches');
     },
 
@@ -190,6 +344,22 @@ export const energywebpage = {
      */
      clickOnMoveIntoThisPropOpts(browser : NightwatchBrowser, optValue : string) {
         helperUtils.click(browser, 'useXpath', '//input[@id="' + optValue + '"]', optValue + ' Value is Present and Clicked on it.');
+    },
+
+    /**
+     * Clicks on "Do you have a recent electricity bill available? *" Options Based on Data
+     * @param browser NightWatchBrowser
+     */
+     clickOnRecentElecBillQtnOpts(browser : NightwatchBrowser, optValue : string) {
+        helperUtils.click(browser, 'useXpath', '//label[text()="'+ optValue +'"]/..//input[@name="elecScenario"]', optValue + ' is Clicked in.. Do you have a recent electricity bill available? *');
+    },
+
+    /**
+     * Clicks on "Do you have a recent Gas bill available? *" Options Based on Data
+     * @param browser NightWatchBrowser
+     */
+     clickOnRecentGasBillQtnOpts(browser : NightwatchBrowser, optValue : string) {
+        helperUtils.click(browser, 'useXpath', '//label[text()="'+ optValue +'"]/..//input[@name="gasScenario"]', optValue + ' is Clicked in.. Do you have a recent gas bill available? *');
     },
 
     /**
@@ -381,14 +551,14 @@ export const energywebpage = {
      */
     validateContactUsChatWindow(browser:NightwatchBrowser){
         helperUtils.click(browser, 'useXpath', this.elements.contactUsBtn, 'Clicks on Contact Us button');
-        helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', this.elements.cntUsChatForm, 20000, 1000, undefined, 'Validation Successful... contact us form is visible');
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visible', this.elements.cntUsChatForm, 20000, 1000, undefined, 'Validation Successful... contact us form is visible');
     },
 
     /**
      * Validate Product is Present or not.
      */
      validateProductPresentInResultsPage(browser:NightwatchBrowser){
-        helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', '(//span[text()="NSW Simply Energy Saver+ Ausgrid 28/19% ^"])[2]', 20000, 1000, undefined, 'Validation Successful... ');
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visible', '(//span[text()="NSW Simply Energy Saver+ Ausgrid 28/19% ^"])[2]', 20000, 1000, undefined, 'Validation Successful... ');
      },
 
      /** Validates the Updated URL for Energy */
@@ -398,9 +568,9 @@ export const energywebpage = {
      },
 
      validateSimplyEnergyLogo(browser:NightwatchBrowser) {
-        helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', this.elements.simplyEnergyLogo, 10000, 100, undefined, 'Simply Energy is added to Energy Home Page under Our Partners Section');
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visible', this.elements.simplyEnergyLogo, 10000, 100, undefined, 'Simply Energy is added to Energy Home Page under Our Partners Section');
         helperUtils.click(browser, 'useXpath', this.elements.viewOurEnergyPartnersBtn, 'Clicked on View Our partners button');
-        helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', this.elements.viewOurPartnerSimplyEnergyLogo, 10000, 100, undefined, 'Simply Energy is Present in View our Partners Page');
+        helperUtils.verifyWebElementExistForInteraction(browser, 'visible', this.elements.viewOurPartnerSimplyEnergyLogo, 10000, 100, undefined, 'Simply Energy is Present in View our Partners Page');
         browser.back();
         helperUtils.enterKeys(browser, 'useXpath', this.elements.energyAddressBar, '200', 'Entered Address code');
         helperUtils.click(browser, 'useXpath', '//div[text()=" 2000, Sydney"]', 'Selected Address from dropdown');
@@ -408,10 +578,36 @@ export const energywebpage = {
         helperUtils.click(browser, 'useXpath', this.elements.approvedProductListLink, 'Clicked on Approved Product List Link');
         browser.frame(0);
         for(let i=1; i<=6; i++) {
-            helperUtils.verifyWebElementExistForInteraction(browser, 'visibile', '(//li[text()="Simply Energ"])['+ i +']', 5000, 100, undefined, 'Simply Energy is Present in Providers Page');
+            helperUtils.verifyWebElementExistForInteraction(browser, 'visible', '(//li[text()="Simply Energ"])['+ i +']', 5000, 100, undefined, 'Simply Energy is Present in Providers Page');
         }
         browser.frameParent();
      },
+
+     /**
+     * Validate and fill the Your Details Page
+     */
+    validateAndFillYourDetPage(browser : NightwatchBrowser, validate? : boolean) {
+        if(validate == true) {
+            browser.waitForElementVisible(this.elements.yourName, 10000, 100, undefined, undefined, 'Your Details Page Loaded..');
+            helperUtils.assertElementStatus(browser, 'visible', this.elements.yourName, 'Validation Successful.... Your Name Field is Visible');
+            helperUtils.assertElementStatus(browser, 'visible', this.elements.yourMobileNo, 'Validation Successful.... Your Mobile No Field is Visible');
+            helperUtils.assertElementStatus(browser, 'visible', this.elements.yourEmail, 'Validation Successful.... Your Email Address Field is Visible');
+            helperUtils.assertElementStatus(browser, 'visible', this.elements.yourSummarySection, 'Validation Successful.... Your Summary Section is Visible');
+            helperUtils.assertElementStatus(browser, 'visible', this.elements.didYouKnowSection, 'Validation Successful.... Did You Know Section is Visible');
+            helperUtils.assertElementStatus(browser, 'visible', this.elements.viewResultsBtn, 'Validation Successful.... View Results Button is Visible');
+            helperUtils.assertElementStatus(browser, 'visible', this.elements.backBtn, 'Validation Successful.... Back Button is Visible');
+        } else {
+            helperUtils.enterKeys(browser, 'useXpath', this.elements.yourName, 'iSelect Test', 'Entered the Name : iSelect Test');
+            helperUtils.enterKeys(browser, 'useXpath', this.elements.yourMobileNo, '0400-000-000', 'Entered the Mobile Number : 0400-000-000');
+            helperUtils.enterKeys(browser, 'useXpath', this.elements.yourEmail, 'kumar.yerupalli@iselect.com.au', 'Entered the Email : kumar.yerupalli@iselect.com.au');
+            browser.pause(3000);
+            helperUtils.click(browser, 'useXpath', this.elements.viewResultsBtn, 'Clicked on View results Button');
+            // browser.pause(3000);
+            // browser.waitForElementVisible(this.elements.yourSearchHeader, 10000, 100, undefined, undefined, 'Validation Successful... View Results Page Loaded..');
+            //browser.click('//div[@class="closeBubble"]');
+        }
+        
+    },
 
      
 }
