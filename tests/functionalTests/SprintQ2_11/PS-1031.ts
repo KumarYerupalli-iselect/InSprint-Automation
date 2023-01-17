@@ -30,9 +30,6 @@ module.exports = {
                 }
                 
             }
-
-            
-
     },
 
     /**
@@ -44,7 +41,7 @@ module.exports = {
             .resizeWindow(1400,900)
             .maximizeWindow()
             .timeoutsImplicitWait(20000)
-            .url('https://wwwuat.iselect.com.au/');
+            .url('https://www.iselect.com.au/');
         browser.globals.abortOnAssertionFailure = true
     },
 

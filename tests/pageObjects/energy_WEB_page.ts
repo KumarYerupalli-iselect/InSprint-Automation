@@ -182,6 +182,12 @@ export const energywebpage = {
 
     },
 
+    randomNum(min, max) {  
+        return Math.floor(
+          Math.random() * (max - min) + min
+        )
+    },
+
     /** Validates the Partner Awards and Ecc Logo removed or not */
     validatePartnerAwardsAndECCLogoRemove(browser : NightwatchBrowser) {
         helperUtils.moveToElement(browser, this.elements.iSelectABNNo, "Moved to Bottom of the Page");
@@ -189,6 +195,7 @@ export const energywebpage = {
             let value = result.value;
             if(value == false) {
                 browser.assert.equal(value, false, 'Validation Successful... Partner Awards is removed.');
+                browser.saveScreenshot('./tests/screenshots/'+ browser.currentTest.name + '/' + this.randomNum(10,1000) + '.png');
             } else {
                 console.log("Failedd");
             }
@@ -197,6 +204,7 @@ export const energywebpage = {
             let value = result.value;
             if(value == false) {
                 browser.assert.equal(value, false, 'Validation Successful... ECC Logo is removed.');
+                browser.saveScreenshot('./tests/screenshots/'+ browser.currentTest.name + '/' + this.randomNum(10,1000) + '.png');
             } else {
                 console.log("Failedd");
             }

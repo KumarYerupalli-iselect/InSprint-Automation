@@ -7,7 +7,7 @@
     "clean": "rimraf ./tests_output/ && rimraf ./tests/build && rimraf ./tests/reports/*.html && rimraf ./tests/screenshots/",
     "compile": "cd ./tests && tsc --outDir ./build/",
     "regressionTests:uat": "npx nightwatch ./tests/build/functionalTests/Regression --reporter html-reporter.js -c ./tests/configFiles/nightwatch.conf.js",
-    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/SprintQ2_12/PS-1024.js --reporter=html -c ./tests/configFiles/nightwatch.conf.js",
+    "runSingleTest": "npx nightwatch ./tests/build/functionalTests/SprintQ2_13_14/PS-1098.js --reporter=html -c ./tests/configFiles/nightwatch.conf.js",
     "regressionTests:prod": "npx nightwatch ./tests/build/functionalTests/Regression --reporter html-reporter.js -c ./tests/configFiles/nightwatch.conf.js -e PROD",
     "testSafari:browserstack": "npx nightwatch -c ./tests/configFiles/nightwatch.browserstack.conf.js ./build/functionalTests -a quickTestCheck -e browserstack.safari",
     "allure": "allure generate ./allure-results --clean && allure open",
@@ -19,7 +19,7 @@
   "devDependencies": {
     "@types/nightwatch": "^2.3.14",
     "@types/node": "^18.11.9",
-    "chromedriver": "^106.0.1",
+    "chromedriver": "^108.0.0",
     "dot-env": "^0.0.1",
     "fs": "^0.0.1-security",
     "geckodriver": "^3.0.1",
